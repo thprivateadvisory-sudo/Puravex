@@ -7,491 +7,413 @@
   <meta name="description" content="Puravex, formulations pro-grade pour l'automobile, l'hôtellerie et l'industrie. Livraison France 48h.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink:     #090F1C;
-      --ink-2:   #1A2B42;
-      --blue:    #1852E8;
-      --blue-d:  #1340C2;
-      --steel:   #68788C;
-      --steel-2: #A4B0BC;
-      --paper:   #F3F0EA;
-      --paper-2: #E8E4DC;
-      --white:   #FFFFFF;
-      --line:    #D6D1C8;
+      --navy:   #0B1F3A;
+      --navy-2: #162D50;
+      --blue:   #1852E8;
+      --blue-l: #EEF3FD;
+      --blue-m: #BDCFF9;
+      --gray:   #F6F7F9;
+      --gray-2: #EEF0F3;
+      --line:   #E1E4EA;
+      --text:   #0B1F3A;
+      --text-2: #3D5068;
+      --text-3: #7A8FA6;
+      --white:  #FFFFFF;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+    body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--ink); height: 64px; display: flex; align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.97); height: 68px; display: flex; align-items: center;
+      border-bottom: 1px solid var(--line);
     }
     .nav-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      display: flex; align-items: center; gap: 0;
     }
-    .nav-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; flex-shrink: 0; }
-    .nav-logo img { height: 36px; width: auto; display: block; }
-    .nav-ref {
-      font-family: 'Space Mono', monospace; font-size: 8px; color: rgba(255,255,255,0.2);
-      letter-spacing: 1px; padding-left: 16px; border-left: 1px solid rgba(255,255,255,0.1);
-      line-height: 1.6;
-    }
-    .nav-links { display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; margin-right: 40px; }
+    .nav-logo img { height: 42px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; flex: 1; }
     .nav-links a {
-      font-size: 11px; letter-spacing: 1.5px; color: rgba(255,255,255,0.45);
-      text-decoration: none; text-transform: uppercase; font-weight: 500; transition: color .2s;
+      font-size: 13px; letter-spacing: 0.3px; color: var(--text-2);
+      text-decoration: none; font-weight: 500; transition: color .2s;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+    .nav-link-pro {
+      font-size: 13px; color: var(--text-2); text-decoration: none; font-weight: 500;
+      padding: 8px 16px; border: 1.5px solid var(--line); transition: border-color .2s, color .2s;
+    }
+    .nav-link-pro:hover { border-color: var(--blue); color: var(--blue); }
     .nav-cta {
-      background: var(--blue); color: var(--white); border: none;
-      padding: 9px 20px; font-family: 'Space Mono', monospace; font-size: 10px;
-      letter-spacing: 1.5px; font-weight: 700; cursor: pointer; text-transform: uppercase;
+      background: var(--blue); color: var(--white); border: none; padding: 10px 22px;
+      font-size: 13px; letter-spacing: 0.3px; font-weight: 600; cursor: pointer;
       text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
       transition: background .2s; flex-shrink: 0;
     }
-    .nav-cta:hover { background: var(--blue-d); }
-    .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-mobile-toggle span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.6); }
+    .nav-cta:hover { background: #1340C2; }
+    .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; margin-left: auto; }
+    .nav-mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--text-2); border-radius: 2px; }
 
     /* ── HERO ── */
-    .hero { background: var(--ink); padding-top: 64px; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-    .hero::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px);
+    .hero {
+      padding-top: 68px; min-height: 100vh; display: flex; flex-direction: column;
+      background: var(--white);
     }
-
     .hero-main {
-      flex: 1; display: grid; grid-template-columns: 1fr 500px;
-      min-height: calc(100vh - 64px - 80px);
-      max-width: 1200px; margin: 0 auto; padding: 0 32px; width: 100%;
+      flex: 1; display: grid; grid-template-columns: 1fr 460px;
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      min-height: calc(100vh - 68px - 72px); width: 100%;
+      align-items: center; gap: 60px;
     }
+    .hero-left { padding: 60px 0; }
 
-    /* Left: text */
-    .hero-text {
-      padding: 80px 60px 80px 0; display: flex; flex-direction: column;
-      justify-content: center; border-right: 1px solid rgba(255,255,255,0.07);
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-l); border: 1px solid var(--blue-m);
+      padding: 6px 14px; margin-bottom: 28px;
     }
-    .hero-meta {
-      display: flex; align-items: center; gap: 14px; margin-bottom: 40px;
-    }
-    .hero-meta-tag {
-      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
-      color: var(--blue); text-transform: uppercase; padding: 5px 10px;
-      border: 1px solid rgba(24,82,232,0.45);
-    }
-    .hero-meta-line { flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
-    .hero-meta-ref { font-family: 'Space Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.18); letter-spacing: 1px; }
+    .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+    .hero-tag-text { font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; }
 
-    .hero-display {
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: clamp(72px, 8.5vw, 116px); line-height: 0.88; text-transform: uppercase;
-      letter-spacing: -2px; color: var(--white); margin-bottom: 32px;
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 6.5vw, 80px); font-weight: 800;
+      line-height: 1.0; text-transform: uppercase; letter-spacing: -1px;
+      color: var(--navy); margin-bottom: 20px;
     }
-    .hero-display .hl { color: var(--blue); }
-    .hero-display .indent { display: block; padding-left: 48px; }
-
-    .hero-rule { width: 40px; height: 2px; background: var(--blue); margin-bottom: 24px; }
+    .hero h1 .hl { color: var(--blue); }
 
     .hero-desc {
-      font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.5);
-      line-height: 1.75; max-width: 400px; margin-bottom: 48px;
+      font-size: 16px; font-weight: 300; color: var(--text-2);
+      line-height: 1.75; max-width: 440px; margin-bottom: 36px;
     }
-    .hero-actions { display: flex; align-items: center; gap: 28px; }
-    .btn-hero {
+    .hero-actions { display: flex; align-items: center; gap: 14px; margin-bottom: 48px; }
+    .btn-primary {
       background: var(--blue); color: var(--white); border: none; padding: 14px 28px;
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700;
-      cursor: pointer; text-transform: uppercase; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 12px; transition: background .2s;
+      font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px; transition: background .2s;
     }
-    .btn-hero:hover { background: var(--blue-d); }
-    .btn-ghost {
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.35); text-decoration: none; text-transform: uppercase; transition: color .2s;
+    .btn-primary:hover { background: #1340C2; }
+    .btn-outline {
+      background: transparent; color: var(--text-2); border: 1.5px solid var(--line);
+      padding: 13px 24px; font-size: 14px; font-weight: 500; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: border-color .2s, color .2s;
     }
-    .btn-ghost:hover { color: rgba(255,255,255,0.75); }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-    /* Right: product visual */
-    .hero-product {
-      display: flex; align-items: center; justify-content: center;
-      padding: 60px 40px; position: relative;
+    .hero-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-badge {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: var(--text-3);
     }
-    .hero-corner {
-      position: absolute; width: 14px; height: 14px;
+    .hero-badge svg { width: 14px; height: 14px; stroke: var(--text-3); fill: none; stroke-width: 2; }
+
+    /* Hero visual */
+    .hero-right {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      padding: 48px 0; height: 100%;
     }
-    .hero-corner::before, .hero-corner::after { content: ''; position: absolute; background: rgba(255,255,255,0.15); }
-    .hero-corner::before { width: 100%; height: 1px; top: 0; left: 0; }
-    .hero-corner::after  { width: 1px; height: 100%; top: 0; left: 0; }
-    .hero-corner.tr { top: 20px; right: 20px; transform: rotate(90deg); }
-    .hero-corner.br { bottom: 20px; right: 20px; transform: rotate(180deg); }
-    .hero-corner.bl { bottom: 20px; left: 20px; transform: rotate(270deg); }
-    .hero-corner.tl { top: 20px; left: 20px; }
-
-    .hero-product-wrap { position: relative; width: 200px; }
-    .hero-bottle { width: 180px; display: block; margin: 0 auto; filter: drop-shadow(0 20px 40px rgba(24,82,232,0.3)); }
-
-    .ann {
-      position: absolute; font-family: 'Space Mono', monospace; font-size: 8.5px;
-      letter-spacing: 1px; color: rgba(255,255,255,0.3); text-transform: uppercase;
-      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+    .hero-visual-bg {
+      position: absolute; inset: 0;
+      background: var(--gray);
+      border-radius: 0;
     }
-    .ann-line { display: block; height: 1px; background: rgba(255,255,255,0.15); width: 28px; flex-shrink: 0; }
-    .ann.right { right: -110px; flex-direction: row-reverse; }
-    .ann.right .ann-line { }
-    .ann.left  { left: -100px; }
-    .ann-1 { top: 14%; }
-    .ann-2 { top: 40%; }
-    .ann-3 { bottom: 28%; }
-    .ann-4 { top: 26%; }
-    .ann-5 { bottom: 18%; }
+    .hero-visual-inner { position: relative; z-index: 1; display: flex; align-items: flex-end; gap: 16px; }
+    .hero-bottle-wrap { position: relative; }
+    .hero-bottle-main { width: 160px; display: block; filter: drop-shadow(0 16px 32px rgba(11,31,58,0.18)); }
+    .hero-bottle-sm { width: 110px; display: block; filter: drop-shadow(0 10px 20px rgba(11,31,58,0.14)); margin-bottom: 20px; }
 
-    /* KPI strip */
+    .hero-product-tag {
+      position: absolute; background: var(--white);
+      border: 1px solid var(--line); padding: 10px 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .hero-product-tag.top { top: 24px; right: -20px; }
+    .hero-product-tag.bottom { bottom: 48px; left: -24px; }
+    .hpt-label { font-size: 9px; font-weight: 600; color: var(--text-3); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+    .hpt-val { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); }
+    .hpt-sub { font-size: 9px; color: var(--text-3); letter-spacing: 0.5px; }
+
+    /* KPIs */
     .hero-kpis {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.07); height: 80px;
-      max-width: 100%; background: var(--ink);
+      background: var(--navy); display: grid; grid-template-columns: repeat(4, 1fr); height: 72px;
     }
     .kpi-item {
       display: flex; align-items: center; gap: 14px; padding: 0 28px;
-      border-right: 1px solid rgba(255,255,255,0.07);
+      border-right: 1px solid rgba(255,255,255,0.08);
     }
     .kpi-item:last-child { border-right: none; }
     .kpi-num {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 700;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 700;
       color: var(--white); line-height: 1; white-space: nowrap;
     }
-    .kpi-num em { color: var(--blue); font-style: normal; }
-    .kpi-label {
-      font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.5px;
-      color: rgba(255,255,255,0.28); text-transform: uppercase; line-height: 1.6;
-    }
+    .kpi-num em { color: #5B8EF0; font-style: normal; }
+    .kpi-label { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.4; }
 
-    /* ── TRUST STRIP ── */
-    .trust-strip {
-      background: var(--paper); border-bottom: 1px solid var(--line);
-      height: 44px; display: flex; align-items: center; overflow: hidden;
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--blue); padding: 13px 0;
     }
-    .trust-track { display: flex; white-space: nowrap; }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
     .trust-item {
-      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1px;
-      color: var(--steel); text-transform: uppercase; padding: 0 32px;
-      border-right: 1px solid var(--line); height: 44px; display: flex; align-items: center;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: rgba(255,255,255,0.9); font-weight: 500;
     }
+    .trust-item svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 2; flex-shrink: 0; }
 
     /* ── GAMMES ── */
-    .gammes-section { background: var(--paper); padding: 72px 0 0; }
-    .gammes-header {
-      max-width: 1200px; margin: 0 auto 48px; padding: 0 32px;
-      display: flex; align-items: flex-end; justify-content: space-between;
+    .gammes-section { background: var(--gray); padding: 80px 0; }
+    .section-header { margin-bottom: 48px; }
+    .section-tag {
+      font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
     }
-    .gammes-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; margin-bottom: 12px; }
-    .gammes-title { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 800; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: var(--ink); }
-    .gammes-count { font-family: 'Barlow Condensed', sans-serif; font-size: 96px; font-weight: 900; color: var(--paper-2); line-height: 1; letter-spacing: -4px; }
+    .section-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--blue); }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: -1px; line-height: 1; color: var(--navy);
+    }
+    .section-sub { font-size: 15px; font-weight: 300; color: var(--text-2); line-height: 1.7; max-width: 480px; margin-top: 10px; }
 
-    .gammes-layout { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    /* Gamme: featured row + 3 cards below */
+    .gamme-featured-row {
+      background: var(--navy); display: grid; grid-template-columns: 1fr auto;
+      align-items: center; padding: 40px 48px; gap: 40px; margin-bottom: 16px;
+      cursor: pointer; transition: background .2s; text-decoration: none;
+    }
+    .gamme-featured-row:hover { background: var(--navy-2); }
+    .gfr-left {}
+    .gfr-tag { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .gfr-name { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; color: var(--white); margin-bottom: 8px; }
+    .gfr-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.65; max-width: 540px; }
+    .gfr-right { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+    .gfr-count {
+      text-align: center;
+    }
+    .gfr-count-num { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 700; color: var(--white); line-height: 1; }
+    .gfr-count-label { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 1px; text-transform: uppercase; }
+    .gfr-arrow {
+      width: 44px; height: 44px; border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5);
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .gamme-featured-row:hover .gfr-arrow { background: var(--blue); border-color: var(--blue); color: var(--white); }
 
-    .gamme-featured {
-      background: var(--ink); padding: 56px 52px; position: relative;
-      overflow: hidden; cursor: pointer; transition: background .3s;
-      text-decoration: none; display: flex; flex-direction: column;
+    .gammes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .gamme-card {
+      background: var(--white); border: 1px solid var(--line); padding: 32px 28px;
+      cursor: pointer; transition: border-color .2s, transform .2s; text-decoration: none; display: block;
     }
-    .gamme-featured:hover { background: var(--ink-2, #1A2B42); }
-    .gamme-feat-top {
-      font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.2); margin-bottom: 48px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .gamme-feat-bg {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 160px; font-weight: 900;
-      color: rgba(255,255,255,0.03); position: absolute; right: -16px; bottom: -24px;
-      letter-spacing: -6px; pointer-events: none; line-height: 1;
-    }
-    .gamme-feat-cat {
-      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px;
-      color: var(--blue); text-transform: uppercase; margin-bottom: 16px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .gamme-feat-cat::before { content: ''; display: block; width: 20px; height: 1px; background: var(--blue); }
-    .gamme-feat-name {
-      font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: -1px; line-height: 1;
-      color: var(--white); margin-bottom: 20px;
-    }
-    .gamme-feat-desc {
-      font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.48);
-      line-height: 1.75; max-width: 320px; margin-bottom: 40px; flex: 1;
-    }
-    .gamme-feat-foot { display: flex; align-items: center; justify-content: space-between; }
-    .gamme-feat-n { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: rgba(255,255,255,0.25); }
-    .gamme-feat-arrow {
-      width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.4); transition: border-color .2s, color .2s, background .2s;
-    }
-    .gamme-featured:hover .gamme-feat-arrow { border-color: var(--blue); color: var(--white); background: var(--blue); }
-
-    .gammes-list { display: flex; flex-direction: column; }
-    .gamme-row {
-      display: flex; align-items: center; gap: 20px; padding: 32px 36px;
-      border-bottom: 1px solid var(--line); cursor: pointer;
-      transition: background .2s, padding-left .2s; text-decoration: none;
-    }
-    .gamme-row:last-child { border-bottom: none; flex: 1; }
-    .gamme-row:hover { background: var(--paper-2); padding-left: 44px; }
-    .gamme-row:hover .gamme-row-arrow { color: var(--blue); }
-    .gamme-row-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--steel-2); width: 20px; flex-shrink: 0; }
-    .gamme-row-bar { width: 3px; height: 36px; flex-shrink: 0; }
-    .gamme-row-text { flex: 1; }
-    .gamme-row-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink); margin-bottom: 3px; }
-    .gamme-row-desc { font-size: 12px; font-weight: 300; color: var(--steel); line-height: 1.5; }
-    .gamme-row-count { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: var(--steel-2); text-transform: uppercase; flex-shrink: 0; }
-    .gamme-row-arrow { color: var(--line); font-size: 20px; transition: color .2s; }
+    .gamme-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .gamme-card:hover .gc-arrow { color: var(--blue); }
+    .gc-num { font-size: 11px; font-weight: 600; color: var(--text-3); letter-spacing: 1px; margin-bottom: 14px; }
+    .gc-color { width: 32px; height: 3px; margin-bottom: 14px; }
+    .gc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
+    .gc-desc { font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.6; margin-bottom: 20px; }
+    .gc-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); }
+    .gc-count { font-size: 11px; font-weight: 600; color: var(--blue); letter-spacing: 0.5px; }
+    .gc-arrow { color: var(--line); font-size: 20px; transition: color .2s; }
 
     /* ── PRODUCT SPOTLIGHT ── */
-    .spotlight { background: var(--white); border-top: 1px solid var(--line); overflow: hidden; }
-    .spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; max-width: 1200px; margin: 0 auto; }
-
+    .spotlight { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .spotlight-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
     .spot-sheet {
-      padding: 72px 56px 72px 32px; border-right: 1px solid var(--line);
+      padding: 72px 60px 72px 32px; border-right: 1px solid var(--line);
       display: flex; flex-direction: column; justify-content: center;
     }
-    .spot-crumb {
-      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1.5px;
-      color: var(--steel); text-transform: uppercase; margin-bottom: 40px;
-      display: flex; align-items: center; gap: 8px;
+    .spot-tag {
+      font-size: 10px; font-weight: 600; color: var(--blue); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 32px; display: flex; align-items: center; gap: 10px;
     }
-    .spot-crumb span { color: var(--ink); }
-    .spot-ref { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--blue); margin-bottom: 10px; }
-    .spot-name { font-family: 'Barlow Condensed', sans-serif; font-size: 64px; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; line-height: 0.88; color: var(--ink); margin-bottom: 8px; }
-    .spot-subname { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 400; text-transform: uppercase; letter-spacing: 3px; color: var(--steel); margin-bottom: 32px; }
-    .spot-specs { display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 36px; }
-    .spot-spec { padding: 16px 18px; border-right: 1px solid var(--line); flex: 1; }
+    .spot-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--blue); }
+    .spot-ref { font-size: 11px; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+    .spot-name {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 60px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: -1.5px; line-height: 0.9;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .spot-subname {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--text-3); margin-bottom: 28px;
+    }
+    .spot-desc { font-size: 14px; font-weight: 300; color: var(--text-2); line-height: 1.75; margin-bottom: 28px; max-width: 360px; }
+    .spot-specs { display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+    .spot-spec { padding: 14px 16px; border-right: 1px solid var(--line); flex: 1; }
+    .spot-spec:first-child { padding-left: 0; }
     .spot-spec:last-child { border-right: none; }
-    .spot-spec-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 1px; color: var(--steel); text-transform: uppercase; margin-bottom: 5px; }
-    .spot-spec-val { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--ink); }
-    .spot-price-row { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 32px; }
-    .spot-price { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1; }
-    .spot-price-detail { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: var(--steel); line-height: 1.7; padding-bottom: 8px; }
+    .spot-spec-label { font-size: 9px; font-weight: 600; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .spot-spec-val { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); }
+    .spot-price-row { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 28px; }
+    .spot-price { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .spot-price-info { font-size: 12px; color: var(--text-3); line-height: 1.7; padding-bottom: 8px; }
     .spot-cta {
-      background: var(--ink); color: var(--white); border: none; padding: 15px 28px;
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700;
-      cursor: pointer; text-transform: uppercase; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 14px; align-self: flex-start; transition: background .2s;
+      background: var(--blue); color: var(--white); border: none; padding: 15px 28px;
+      font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; transition: background .2s;
     }
-    .spot-cta:hover { background: var(--blue); }
+    .spot-cta:hover { background: #1340C2; }
 
     .spot-visual {
-      background: var(--paper); display: flex; align-items: center;
-      justify-content: center; position: relative; overflow: hidden; padding: 60px;
+      background: var(--gray); display: flex; align-items: center; justify-content: center;
+      padding: 60px; position: relative; overflow: hidden;
     }
-    .spot-bg-word {
-      position: absolute; font-family: 'Barlow Condensed', sans-serif; font-size: 180px;
-      font-weight: 900; text-transform: uppercase; letter-spacing: -6px;
-      color: var(--paper-2); line-height: 1; pointer-events: none; user-select: none;
-      top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap;
+    .spot-visual-label {
+      position: absolute; top: 28px; left: 32px;
+      font-size: 9px; font-weight: 600; color: var(--text-3); letter-spacing: 2px; text-transform: uppercase;
     }
-    .spot-bottle { position: relative; z-index: 1; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.13)); }
+    .spot-visual-ref {
+      position: absolute; bottom: 28px; right: 32px;
+      font-size: 9px; color: var(--text-3); letter-spacing: 1.5px; font-family: 'Space Mono', monospace;
+    }
+    .spot-bottle { filter: drop-shadow(0 20px 40px rgba(11,31,58,0.15)); }
 
     /* ── CLIENTS ── */
-    .clients-section { background: var(--ink); }
-    .clients-head {
-      max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .clients-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.2); text-transform: uppercase; margin-bottom: 12px; }
-    .clients-title { font-family: 'Barlow Condensed', sans-serif; font-size: 50px; font-weight: 800; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: var(--white); }
-    .clients-sub { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.28); max-width: 260px; line-height: 1.65; text-align: right; }
+    .clients-section { background: var(--gray); padding: 80px 0; }
+    .clients-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .clients-layout { display: grid; grid-template-columns: 360px 1fr; gap: 60px; align-items: start; }
+    .clients-aside-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; color: var(--navy); margin-top: 40px; line-height: 1; }
 
-    .clients-list { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .clients-list { display: flex; flex-direction: column; }
     .client-item {
-      display: flex; align-items: center; gap: 28px; padding: 26px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06); cursor: pointer;
-      transition: padding-left .25s;
+      display: flex; align-items: center; gap: 20px; padding: 22px 0;
+      border-bottom: 1px solid var(--line); cursor: pointer; transition: padding-left .2s;
     }
-    .client-item:hover { padding-left: 10px; }
+    .client-item:first-child { border-top: 1px solid var(--line); }
+    .client-item:hover { padding-left: 8px; }
     .client-item:hover .client-arr { color: var(--blue); }
-    .client-num { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.15); width: 28px; flex-shrink: 0; }
-    .client-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .client-name { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--white); flex: 1; }
-    .client-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.32); max-width: 280px; line-height: 1.5; }
-    .client-arr { color: rgba(255,255,255,0.1); font-size: 22px; transition: color .2s; flex-shrink: 0; }
+    .client-num { font-size: 11px; color: var(--text-3); font-weight: 600; width: 24px; flex-shrink: 0; }
+    .client-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .client-text { flex: 1; }
+    .client-name { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+    .client-desc { font-size: 13px; font-weight: 300; color: var(--text-2); line-height: 1.5; }
+    .client-arr { color: var(--line); font-size: 22px; transition: color .2s; }
 
     /* ── RÉSEAU PRO ── */
-    .reseau-section { background: var(--paper); }
-    .reseau-top { max-width: 1200px; margin: 0 auto; padding: 72px 32px 48px; border-bottom: 1px solid var(--line); }
-    .reseau-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; margin-bottom: 14px; }
-    .reseau-heading { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 800; text-transform: uppercase; line-height: 0.95; letter-spacing: -1px; color: var(--ink); }
+    .reseau-section { background: var(--white); padding: 0; border-top: 1px solid var(--line); }
+    .reseau-header { max-width: 1200px; margin: 0 auto; padding: 72px 32px 48px; border-bottom: 1px solid var(--line); }
+    .reseau-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; color: var(--navy); line-height: 1; }
+    .reseau-sub { font-size: 15px; font-weight: 300; color: var(--text-2); line-height: 1.7; max-width: 520px; margin-top: 10px; }
 
-    .reseau-panels { display: grid; grid-template-columns: 3fr 2fr; border-bottom: 1px solid var(--line); max-width: 1200px; margin: 0 auto; }
-
-    .reseau-main { background: var(--ink); padding: 56px 52px; border-right: 1px solid rgba(255,255,255,0.06); }
-    .reseau-main-cat {
-      font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px;
-      color: rgba(255,255,255,0.25); text-transform: uppercase; margin-bottom: 36px;
-      display: flex; align-items: center; gap: 12px;
+    .reseau-panels { display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; }
+    .reseau-panel {
+      padding: 56px 48px; border-right: 1px solid var(--line);
     }
-    .reseau-main-cat::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
-    .reseau-main-name { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; color: var(--white); margin-bottom: 14px; }
-    .reseau-main-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.48); line-height: 1.75; max-width: 380px; margin-bottom: 36px; }
-    .reseau-price-block { display: flex; align-items: flex-end; gap: 14px; margin-bottom: 36px; }
-    .reseau-price { font-family: 'Barlow Condensed', sans-serif; font-size: 68px; font-weight: 700; color: var(--white); line-height: 1; }
-    .reseau-price-unit { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: rgba(255,255,255,0.28); padding-bottom: 10px; line-height: 1.7; }
-    .reseau-feats { display: flex; flex-direction: column; gap: 11px; margin-bottom: 40px; }
-    .reseau-feat { display: flex; align-items: center; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.58); }
-    .reseau-feat::before { content: '—'; color: var(--blue); font-family: 'Space Mono', monospace; font-size: 10px; flex-shrink: 0; }
-    .reseau-main-btn {
-      background: var(--blue); color: var(--white); padding: 14px 26px;
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700;
-      text-transform: uppercase; text-decoration: none; cursor: pointer; border: none;
-      display: inline-flex; align-items: center; gap: 14px; transition: background .2s;
+    .reseau-panel:last-child { border-right: none; }
+    .reseau-panel-tag { font-size: 10px; font-weight: 600; color: var(--text-3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px; }
+    .reseau-panel-name { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; color: var(--navy); margin-bottom: 14px; line-height: 1; }
+    .reseau-panel-desc { font-size: 14px; font-weight: 300; color: var(--text-2); line-height: 1.75; margin-bottom: 32px; }
+    .reseau-price { font-family: 'Barlow Condensed', sans-serif; font-size: 60px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .reseau-price-sub { font-size: 12px; color: var(--text-3); margin-bottom: 28px; }
+    .reseau-feats { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .reseau-feat { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-2); }
+    .reseau-feat-check {
+      width: 18px; height: 18px; background: var(--blue-l); border: 1px solid var(--blue-m);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .reseau-main-btn:hover { background: var(--blue-d); }
-
-    .reseau-side { background: var(--paper-2); padding: 56px 40px; display: flex; flex-direction: column; }
-    .reseau-side-cat { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; margin-bottom: 36px; }
-    .reseau-side-name { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 12px; }
-    .reseau-side-desc { font-size: 13px; font-weight: 300; color: var(--steel); line-height: 1.75; margin-bottom: 28px; }
-    .reseau-side-price { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 6px; }
-    .reseau-side-price-sub { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: var(--steel); margin-bottom: 28px; }
-    .reseau-side-feats { display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 32px; }
-    .reseau-side-feat { font-size: 13px; color: var(--ink-2, #1A2B42); display: flex; align-items: center; gap: 10px; }
-    .reseau-side-feat::before { content: '—'; color: var(--steel-2); font-family: 'Space Mono', monospace; font-size: 10px; flex-shrink: 0; }
-    .reseau-side-btn {
-      display: block; text-align: center; padding: 13px 20px;
-      border: 1.5px solid var(--ink); font-family: 'Space Mono', monospace;
-      font-size: 10px; letter-spacing: 1.5px; font-weight: 700; color: var(--ink);
-      text-transform: uppercase; text-decoration: none; cursor: pointer;
-      background: transparent; transition: background .2s, color .2s;
+    .reseau-feat-check svg { width: 10px; height: 10px; stroke: var(--blue); stroke-width: 2.5; fill: none; }
+    .reseau-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px; font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: .2s;
     }
-    .reseau-side-btn:hover { background: var(--ink); color: var(--white); }
+    .reseau-btn.primary { background: var(--blue); color: var(--white); border: none; }
+    .reseau-btn.primary:hover { background: #1340C2; }
+    .reseau-btn.secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+    .reseau-btn.secondary:hover { background: var(--navy); color: var(--white); }
 
     /* ── PROCESS ── */
-    .process-section { background: var(--white); padding: 80px 0; border-top: 1px solid var(--line); }
-    .process-head {
-      max-width: 1200px; margin: 0 auto 56px; padding: 0 32px;
-      display: flex; align-items: flex-end; gap: 28px;
-    }
-    .process-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--steel); text-transform: uppercase; margin-bottom: 10px; }
-    .process-title { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; line-height: 1; color: var(--ink); }
-    .process-divider { flex: 1; height: 1px; background: var(--line); margin-bottom: 4px; }
-
-    .process-steps {
-      max-width: 1200px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-    }
-    .process-step { padding: 40px 28px 40px 0; border-right: 1px solid var(--line); }
+    .process-section { background: var(--navy); padding: 72px 0; }
+    .process-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .process-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; }
+    .process-tag { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .process-title { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; color: var(--white); line-height: 1; }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    .process-step { padding: 36px 36px 36px 0; border-right: 1px solid rgba(255,255,255,0.1); }
     .process-step:last-child { border-right: none; padding-right: 0; }
-    .process-step:not(:first-child) { padding-left: 28px; }
-    .step-n {
-      font-family: 'Space Mono', monospace; font-size: 10px; color: var(--blue);
-      letter-spacing: 1px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
-    }
-    .step-n::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-    .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; color: var(--ink); margin-bottom: 10px; }
-    .step-desc { font-size: 13px; font-weight: 300; color: var(--steel); line-height: 1.75; }
+    .process-step:not(:first-child) { padding-left: 36px; }
+    .step-num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 16px; }
+    .step-title { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+    .step-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
     /* ── CTA ── */
-    .cta-banner {
-      background: var(--blue); padding: 72px 0; position: relative; overflow: hidden;
-    }
-    .cta-banner::before {
-      content: 'PURAVEX'; position: absolute; font-family: 'Barlow Condensed', sans-serif;
-      font-size: 160px; font-weight: 900; color: rgba(255,255,255,0.05);
-      right: -16px; bottom: -32px; letter-spacing: -6px; pointer-events: none; line-height: 1;
-    }
-    .cta-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 64px;
-    }
-    .cta-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.38); text-transform: uppercase; margin-bottom: 14px; }
-    .cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; line-height: 0.95; color: var(--white); }
+    .cta-section { background: var(--blue-l); border-top: 1px solid var(--blue-m); padding: 72px 0; }
+    .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 60px; }
+    .cta-tag { font-size: 10px; font-weight: 600; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+    .cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; line-height: 1; color: var(--navy); }
     .cta-actions { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-    .btn-cta-w {
-      background: var(--white); color: var(--blue); border: none; padding: 14px 26px;
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700;
-      cursor: pointer; text-transform: uppercase; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 10px; transition: background .2s; white-space: nowrap;
-    }
-    .btn-cta-w:hover { background: var(--paper); }
-    .btn-cta-o {
-      padding: 13px 26px; border: 1px solid rgba(255,255,255,0.3); text-align: center;
-      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.55); text-transform: uppercase; text-decoration: none;
-      cursor: pointer; background: transparent; transition: border-color .2s, color .2s;
-    }
-    .btn-cta-o:hover { border-color: rgba(255,255,255,0.65); color: var(--white); }
 
     /* ── FOOTER ── */
-    footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-top {
-      max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px;
-      display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-logo-img { height: 38px; width: auto; display: block; margin-bottom: 14px; }
-    .footer-brand-ref { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 1.5px; color: rgba(255,255,255,0.18); text-transform: uppercase; margin-bottom: 14px; }
-    .footer-brand-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.28); line-height: 1.7; }
-    .footer-col-title { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 18px; }
+    footer { background: var(--navy); }
+    .footer-top { max-width: 1200px; margin: 0 auto; padding: 60px 32px 48px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { height: 38px; width: auto; display: block; margin-bottom: 14px; }
+    .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.25); margin-bottom: 12px; letter-spacing: 0.5px; }
+    .footer-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.3); line-height: 1.7; }
+    .footer-col-title { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
     .footer-links { display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.32); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: rgba(255,255,255,0.72); }
-    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.14); }
-    .footer-group { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1px; color: rgba(255,255,255,0.14); }
+    .footer-links a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.38); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+    .footer-group { font-size: 12px; color: rgba(255,255,255,0.2); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
+    @media (max-width: 1000px) {
       .hero-main { grid-template-columns: 1fr; }
-      .hero-product { display: none; }
-      .hero-text { border-right: none; padding-right: 0; }
+      .hero-right { display: none; }
       .hero-kpis { grid-template-columns: repeat(2, 1fr); height: auto; }
-      .kpi-item { padding: 18px 20px; flex-wrap: wrap; }
-      .gammes-layout { grid-template-columns: 1fr; }
+      .kpi-item { padding: 16px 20px; }
+      .gammes-grid { grid-template-columns: 1fr 1fr; }
       .spotlight-inner { grid-template-columns: 1fr; }
       .spot-visual { min-height: 300px; }
+      .clients-layout { grid-template-columns: 1fr; }
       .reseau-panels { grid-template-columns: 1fr; }
+      .reseau-panel { border-right: none; border-bottom: 1px solid var(--line); }
+      .reseau-panel:last-child { border-bottom: none; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .cta-inner { grid-template-columns: 1fr; gap: 32px; }
-      .clients-sub { display: none; }
+      .trust-inner { gap: 12px; }
     }
     @media (max-width: 900px) {
       .nav-links { display: none; }
+      .nav-right { display: none; }
       .nav-cta { display: none; }
       .nav-mobile-toggle { display: flex; }
-      .nav-ref { display: none; }
     }
     @media (max-width: 640px) {
-      nav { height: 56px; }
-      .nav-logo img { height: 30px; }
-      .hero { padding-top: 56px; }
-      .hero-main { min-height: auto; }
-      .hero-text { padding: 52px 0; }
-      .hero-display { font-size: 62px; }
-      .hero-display .indent { padding-left: 28px; }
+      nav { height: 60px; }
+      .nav-logo img { height: 36px; }
+      .hero { padding-top: 60px; }
+      .gammes-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
-      .process-step { border-right: none; border-bottom: 1px solid var(--line); padding: 32px 0; }
+      .process-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 32px 0; }
       .process-step:last-child { border-bottom: none; }
       .process-step:not(:first-child) { padding-left: 0; }
-      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-kpis { grid-template-columns: repeat(2, 1fr); }
+      .gamme-featured-row { grid-template-columns: 1fr; padding: 32px 28px; }
+      .gfr-right { justify-content: space-between; }
       .spot-sheet { padding: 48px 24px; }
-      .spot-name { font-size: 48px; }
-      .clients-title { font-size: 38px; }
-      .cta-title { font-size: 38px; }
-      .client-desc { display: none; }
-      .gammes-title { font-size: 40px; }
-      .gammes-count { font-size: 70px; }
+      .spot-name { font-size: 44px; }
+      .trust-inner { flex-direction: column; align-items: flex-start; }
+      .cta-title { font-size: 36px; }
     }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
   </style>
 </head>
@@ -502,18 +424,20 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <img src="logo.png" alt="Puravex">
-      <div class="nav-ref">GROUPE COHESIF<br>EST. 2026</div>
     </a>
     <div class="nav-links">
-      <a href="#gammes">Gammes</a>
+      <a href="#gammes">Nos gammes</a>
       <a href="#clients">Nos clients</a>
-      <a href="#reseau">Réseau pro</a>
+      <a href="#boutique">Boutique</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#boutique" class="nav-cta">
-      Commander
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    <div class="nav-right">
+      <a href="#reseau" class="nav-link-pro">Espace pro</a>
+      <a href="#boutique" class="nav-cta">
+        Commander
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
     <div class="nav-mobile-toggle">
       <span></span><span></span><span></span>
     </div>
@@ -523,173 +447,194 @@
 <!-- ── HERO ── -->
 <section class="hero" id="hero">
   <div class="hero-main">
-
-    <!-- Left: Typography -->
-    <div class="hero-text">
-      <div class="hero-meta reveal">
-        <div class="hero-meta-tag">Auto · Industrie · Hôtellerie</div>
-        <div class="hero-meta-line"></div>
-        <div class="hero-meta-ref">PX·2026</div>
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-tag reveal">
+        <div class="hero-tag-dot"></div>
+        <div class="hero-tag-text">Professionnel · Automobile · Hôtellerie</div>
       </div>
-      <div class="hero-display reveal" style="transition-delay:.1s">
-        <span>Formulé</span>
-        <span class="indent">pour les</span>
-        <span class="indent hl">pros.</span>
-      </div>
-      <div class="hero-rule reveal" style="transition-delay:.15s"></div>
-      <p class="hero-desc reveal" style="transition-delay:.2s">
-        Formulations pro-grade pour l'automobile, l'hôtellerie et l'industrie.<br>
-        Distribué en France via notre réseau de revendeurs agréés.
+      <h1 class="reveal" style="transition-delay:.08s">
+        La formulation<br>
+        qui fait la<br>
+        <span class="hl">différence.</span>
+      </h1>
+      <p class="hero-desc reveal" style="transition-delay:.16s">
+        Des produits formulés pour les environnements exigeants. Hôtels, garages, sociétés de nettoyage, stations service. Qualité professionnelle, livraison en 48h.
       </p>
-      <div class="hero-actions reveal" style="transition-delay:.3s">
-        <a href="#gammes" class="btn-hero">
-          Découvrir les gammes
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div class="hero-actions reveal" style="transition-delay:.24s">
+        <a href="#gammes" class="btn-primary">
+          Découvrir nos gammes
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#reseau" class="btn-ghost">Espace pro →</a>
+        <a href="#reseau" class="btn-outline">Devenir revendeur</a>
+      </div>
+      <div class="hero-badges reveal" style="transition-delay:.32s">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Normes EU certifiées
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Livraison 48h France
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Paiement sécurisé
+        </div>
       </div>
     </div>
 
-    <!-- Right: Product -->
-    <div class="hero-product">
-      <div class="hero-corner tl"></div>
-      <div class="hero-corner tr"></div>
-      <div class="hero-corner br"></div>
-      <div class="hero-corner bl"></div>
-      <div class="hero-product-wrap">
-        <div class="ann right ann-1"><span class="ann-line"></span>NETTOYANT FREINS</div>
-        <div class="ann right ann-2"><span class="ann-line"></span>PX-01 // 500 ML</div>
-        <div class="ann right ann-3"><span class="ann-line"></span>CONCENTRÉ ×10</div>
-        <div class="ann left ann-4">PRO-GRADE<span class="ann-line"></span></div>
-        <div class="ann left ann-5">pH 12.5<span class="ann-line"></span></div>
-        <!-- Spray bottle SVG -->
-        <svg class="hero-bottle" viewBox="0 0 160 290" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Cap -->
-          <rect x="62" y="2" width="36" height="18" rx="5" fill="#1852E8"/>
-          <!-- Neck -->
-          <rect x="55" y="18" width="50" height="18" rx="4" fill="#1340C2"/>
-          <!-- Trigger mechanism -->
-          <rect x="108" y="22" width="32" height="7" rx="3.5" fill="#1340C2"/>
-          <rect x="136" y="16" width="7" height="22" rx="3.5" fill="#1340C2"/>
-          <!-- Body -->
-          <path d="M38 36 Q34 48 32 58 L32 256 Q32 264 40 264 L120 264 Q128 264 128 256 L128 58 Q126 48 122 36 Z" fill="#111D33" stroke="#1852E8" stroke-width="1.2"/>
-          <!-- Label band -->
-          <rect x="32" y="88" width="96" height="108" fill="#0A1628"/>
-          <!-- Label top accent -->
-          <rect x="32" y="88" width="96" height="3" fill="#1852E8"/>
-          <!-- Label bottom accent -->
-          <rect x="32" y="193" width="96" height="3" fill="#1852E8"/>
-          <!-- Brand name -->
-          <text x="80" y="128" text-anchor="middle" fill="white" font-size="13" letter-spacing="4.5" font-family="Barlow Condensed, sans-serif" font-weight="800">PURAVEX</text>
-          <!-- Tagline -->
-          <text x="80" y="142" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5.5" letter-spacing="2.5" font-family="sans-serif">AUTO · PRO · FORMULA</text>
-          <!-- Separator -->
-          <rect x="48" y="152" width="64" height="0.7" fill="rgba(255,255,255,0.07)"/>
-          <!-- Product name -->
-          <text x="80" y="167" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7" letter-spacing="1.5" font-family="sans-serif">NETTOYANT FREINS</text>
-          <!-- Ref -->
-          <text x="80" y="181" text-anchor="middle" fill="rgba(24,82,232,0.75)" font-size="6" letter-spacing="1" font-family="sans-serif">PX-01 / 500 ML</text>
-          <!-- Bottom shadow -->
-          <rect x="32" y="228" width="96" height="36" fill="rgba(0,0,0,0.12)"/>
-          <!-- Shine strip -->
-          <rect x="38" y="58" width="4" height="196" rx="2" fill="rgba(255,255,255,0.035)"/>
+    <!-- Right: Product visual -->
+    <div class="hero-right">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-visual-inner">
+        <!-- Main bottle -->
+        <div class="hero-bottle-wrap">
+          <div class="hero-product-tag top">
+            <div class="hpt-label">Gamme Auto</div>
+            <div class="hpt-val">Nettoyant freins</div>
+            <div class="hpt-sub">PX-01 · 500 ML</div>
+          </div>
+          <svg class="hero-bottle-main" viewBox="0 0 140 260" fill="none">
+            <rect x="52" y="2" width="36" height="16" rx="5" fill="#1852E8"/>
+            <rect x="46" y="16" width="48" height="16" rx="4" fill="#1340C2"/>
+            <rect x="100" y="19" width="28" height="7" rx="3.5" fill="#1340C2"/>
+            <rect x="124" y="13" width="7" height="20" rx="3.5" fill="#1340C2"/>
+            <path d="M28 32 Q24 44 22 54 L22 230 Q22 238 30 238 L110 238 Q118 238 118 230 L118 54 Q116 44 112 32 Z" fill="#0B1F3A"/>
+            <rect x="22" y="78" width="96" height="96" fill="#162D50"/>
+            <rect x="22" y="78" width="96" height="3" fill="#1852E8"/>
+            <rect x="22" y="171" width="96" height="3" fill="#1852E8"/>
+            <text x="70" y="116" text-anchor="middle" fill="white" font-size="12" letter-spacing="4" font-family="Barlow Condensed, sans-serif" font-weight="800">PURAVEX</text>
+            <text x="70" y="130" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5.5" letter-spacing="2" font-family="sans-serif">AUTO · PRO · FORMULA</text>
+            <rect x="38" y="140" width="64" height="0.7" fill="rgba(255,255,255,0.08)"/>
+            <text x="70" y="154" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7" letter-spacing="1.5" font-family="sans-serif">NETTOYANT FREINS</text>
+            <text x="70" y="166" text-anchor="middle" fill="rgba(24,82,232,0.8)" font-size="6" letter-spacing="1" font-family="sans-serif">PX-01 / 500 ML</text>
+            <rect x="22" y="204" width="96" height="34" fill="rgba(0,0,0,0.1)"/>
+            <rect x="28" y="54" width="4" height="172" rx="2" fill="rgba(255,255,255,0.04)"/>
+          </svg>
+          <div class="hero-product-tag bottom">
+            <div class="hpt-label">À partir de</div>
+            <div class="hpt-val">12,90 €</div>
+            <div class="hpt-sub">Livraison offerte dès 49 €</div>
+          </div>
+        </div>
+        <!-- Second bottle -->
+        <svg class="hero-bottle-sm" viewBox="0 0 120 220" fill="none">
+          <rect x="44" y="2" width="32" height="14" rx="4" fill="#0f4c3a"/>
+          <rect x="38" y="14" width="44" height="14" rx="4" fill="#0a3d2e"/>
+          <path d="M22 28 Q18 38 16 46 L16 194 Q16 202 24 202 L96 202 Q104 202 104 194 L104 46 Q102 38 98 28 Z" fill="#0a3d2e"/>
+          <rect x="16" y="66" width="88" height="82" fill="#0f5c3a"/>
+          <rect x="16" y="66" width="88" height="3" fill="#10b981"/>
+          <rect x="16" y="145" width="88" height="3" fill="#10b981"/>
+          <text x="60" y="102" text-anchor="middle" fill="white" font-size="10" letter-spacing="3" font-family="Barlow Condensed, sans-serif" font-weight="800">PURAVEX</text>
+          <text x="60" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="5" letter-spacing="2" font-family="sans-serif">HÔTELLERIE</text>
+          <rect x="28" y="122" width="64" height="0.7" fill="rgba(255,255,255,0.08)"/>
+          <text x="60" y="134" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="6" letter-spacing="1" font-family="sans-serif">MULTI-SURFACES</text>
+          <rect x="22" y="47" width="4" height="148" rx="2" fill="rgba(255,255,255,0.04)"/>
         </svg>
       </div>
     </div>
   </div>
 
-  <!-- KPI strip -->
+  <!-- KPIs -->
   <div class="hero-kpis">
     <div class="kpi-item reveal">
       <div class="kpi-num">4</div>
       <div class="kpi-label">Gammes<br>professionnelles</div>
     </div>
-    <div class="kpi-item reveal" style="transition-delay:.08s">
+    <div class="kpi-item reveal" style="transition-delay:.07s">
       <div class="kpi-num">48<em>H</em></div>
       <div class="kpi-label">Livraison<br>France entière</div>
     </div>
-    <div class="kpi-item reveal" style="transition-delay:.16s">
+    <div class="kpi-item reveal" style="transition-delay:.14s">
       <div class="kpi-num">B2B</div>
       <div class="kpi-label">Tarifs<br>professionnels</div>
     </div>
-    <div class="kpi-item reveal" style="transition-delay:.24s">
+    <div class="kpi-item reveal" style="transition-delay:.21s">
       <div class="kpi-num">×<em>2</em></div>
       <div class="kpi-label">Marge revendeur<br>garantie</div>
     </div>
   </div>
 </section>
 
-<!-- ── TRUST STRIP ── -->
-<div class="trust-strip">
-  <div class="trust-track">
-    <div class="trust-item">Conformes normes européennes</div>
-    <div class="trust-item">Livraison France 48h — Suivi temps réel</div>
-    <div class="trust-item">Paiement sécurisé — CB · Virement · Klarna</div>
-    <div class="trust-item">Retours offerts 14 jours</div>
-    <div class="trust-item">Tarifs pro dégressifs selon volume</div>
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Produits conformes normes européennes
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      Livraison France 48h — Suivi en temps réel
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Paiement sécurisé — CB · Virement · Klarna
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.68"/></svg>
+      Retours offerts 14 jours
+    </div>
   </div>
 </div>
 
 <!-- ── GAMMES ── -->
 <section class="gammes-section" id="gammes">
-  <div class="gammes-header reveal">
-    <div>
-      <div class="gammes-label">Catalogue produits</div>
-      <div class="gammes-title">Nos<br>Gammes</div>
+  <div class="container" style="max-width:1200px;margin:0 auto;padding:0 32px">
+    <div class="section-header reveal">
+      <div class="section-tag">Catalogue produits</div>
+      <div class="section-title">Nos 4 gammes<br>professionnelles</div>
+      <div class="section-sub">Des formulations adaptées à chaque secteur, testées et validées sur le terrain par des professionnels exigeants.</div>
     </div>
-    <div class="gammes-count">04</div>
-  </div>
-  <div class="gammes-layout">
     <!-- Featured gamme -->
-    <a href="#" class="gamme-featured reveal">
-      <div class="gamme-feat-top">
-        <span>GAMME 01 — SÉLECTION</span>
-        <span>8 PRODUITS</span>
+    <a href="#" class="gamme-featured-row reveal">
+      <div class="gfr-left">
+        <div class="gfr-tag">Gamme 01 — Bestseller</div>
+        <div class="gfr-name">Auto &amp; Detailing</div>
+        <div class="gfr-desc">Nettoyant freins, shampoing carrosserie, polish, dégraissant moteur. La référence pour les garages professionnels, detailers certifiés et stations de lavage haute cadence.</div>
       </div>
-      <div class="gamme-feat-cat">Auto & Detailing</div>
-      <div class="gamme-feat-name">Automobile<br>&amp; Detailing</div>
-      <div class="gamme-feat-desc">
-        Nettoyant freins, shampoing carrosserie, polish, dégraissant moteur. La référence pour les garages professionnels, detailers certifiés et stations de lavage.
-      </div>
-      <div class="gamme-feat-foot">
-        <div class="gamme-feat-n">8 produits disponibles</div>
-        <div class="gamme-feat-arrow">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div class="gfr-right">
+        <div class="gfr-count">
+          <div class="gfr-count-num">8</div>
+          <div class="gfr-count-label">Produits</div>
+        </div>
+        <div class="gfr-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
-      <div class="gamme-feat-bg">01</div>
     </a>
-    <!-- List of 3 -->
-    <div class="gammes-list">
-      <a href="#" class="gamme-row reveal">
-        <div class="gamme-row-num">02</div>
-        <div class="gamme-row-bar" style="background:#1852E8"></div>
-        <div class="gamme-row-text">
-          <div class="gamme-row-name">Hôtellerie & AirBnB</div>
-          <div class="gamme-row-desc">Multi-surfaces, désinfectants, produits sanitaires haute fréquence</div>
+    <!-- 3 other gammes -->
+    <div class="gammes-grid">
+      <a href="#" class="gamme-card reveal">
+        <div class="gc-num">02</div>
+        <div class="gc-color" style="background:#1852E8"></div>
+        <div class="gc-name">Hôtellerie & AirBnB</div>
+        <div class="gc-desc">Multi-surfaces, désinfectants, produits sanitaires. Formulations haute fréquence pour les hébergements professionnels.</div>
+        <div class="gc-foot">
+          <div class="gc-count">6 produits</div>
+          <div class="gc-arrow">›</div>
         </div>
-        <div class="gamme-row-count">6 produits</div>
-        <div class="gamme-row-arrow">›</div>
       </a>
-      <a href="#" class="gamme-row reveal" style="transition-delay:.08s">
-        <div class="gamme-row-num">03</div>
-        <div class="gamme-row-bar" style="background:#68788C"></div>
-        <div class="gamme-row-text">
-          <div class="gamme-row-name">Industrie & BTP</div>
-          <div class="gamme-row-desc">Décapants puissants, dégraissants lourds pour ateliers et chantiers</div>
+      <a href="#" class="gamme-card reveal" style="transition-delay:.08s">
+        <div class="gc-num">03</div>
+        <div class="gc-color" style="background:#64748B"></div>
+        <div class="gc-name">Industrie & BTP</div>
+        <div class="gc-desc">Décapants puissants, dégraissants lourds, nettoyants industriels. Pour les chantiers, ateliers et environnements de production.</div>
+        <div class="gc-foot">
+          <div class="gc-count">5 produits</div>
+          <div class="gc-arrow">›</div>
         </div>
-        <div class="gamme-row-count">5 produits</div>
-        <div class="gamme-row-arrow">›</div>
       </a>
-      <a href="#" class="gamme-row reveal" style="transition-delay:.16s">
-        <div class="gamme-row-num">04</div>
-        <div class="gamme-row-bar" style="background:#0f4c3a"></div>
-        <div class="gamme-row-text">
-          <div class="gamme-row-name">Stations Service</div>
-          <div class="gamme-row-desc">Produits piste, lavage haute pression, shampoing concentré</div>
+      <a href="#" class="gamme-card reveal" style="transition-delay:.16s">
+        <div class="gc-num">04</div>
+        <div class="gc-color" style="background:#10b981"></div>
+        <div class="gc-name">Stations Service</div>
+        <div class="gc-desc">Produits piste, lavage haute pression, shampoing carrosserie concentré. Conçus pour les volumes et la cadence station.</div>
+        <div class="gc-foot">
+          <div class="gc-count">4 produits</div>
+          <div class="gc-arrow">›</div>
         </div>
-        <div class="gamme-row-count">4 produits</div>
-        <div class="gamme-row-arrow">›</div>
       </a>
     </div>
   </div>
@@ -699,19 +644,32 @@
 <section class="spotlight" id="boutique">
   <div class="spotlight-inner">
     <div class="spot-sheet">
-      <div class="spot-crumb reveal">Catalogue <span>/ Auto &amp; Detailing</span></div>
-      <div class="spot-ref reveal" style="transition-delay:.05s">PX-DS-500 / GAMME AUTO</div>
+      <div class="spot-tag reveal">Produit vedette</div>
+      <div class="spot-ref reveal" style="transition-delay:.05s">Réf. PX-DS-500 — Gamme Auto</div>
       <div class="spot-name reveal" style="transition-delay:.1s">Dégraissant</div>
       <div class="spot-subname reveal" style="transition-delay:.13s">Ultra Pro</div>
-      <div class="spot-specs reveal" style="transition-delay:.18s">
-        <div class="spot-spec"><div class="spot-spec-label">Format</div><div class="spot-spec-val">500 ML</div></div>
-        <div class="spot-spec"><div class="spot-spec-label">Dilution</div><div class="spot-spec-val">×10</div></div>
-        <div class="spot-spec"><div class="spot-spec-label">pH</div><div class="spot-spec-val">12.5</div></div>
-        <div class="spot-spec"><div class="spot-spec-label">Usage</div><div class="spot-spec-val">Pro</div></div>
+      <p class="spot-desc reveal" style="transition-delay:.16s">Dégraissant concentré haute performance pour moteurs, jantes et surfaces grasses. Formulation pro-grade, élimine les graisses minérales et végétales en contact.</p>
+      <div class="spot-specs reveal" style="transition-delay:.2s">
+        <div class="spot-spec">
+          <div class="spot-spec-label">Format</div>
+          <div class="spot-spec-val">500 ML</div>
+        </div>
+        <div class="spot-spec">
+          <div class="spot-spec-label">Dilution</div>
+          <div class="spot-spec-val">×10</div>
+        </div>
+        <div class="spot-spec">
+          <div class="spot-spec-label">pH</div>
+          <div class="spot-spec-val">12.5</div>
+        </div>
+        <div class="spot-spec">
+          <div class="spot-spec-label">Usage</div>
+          <div class="spot-spec-val">Pro</div>
+        </div>
       </div>
-      <div class="spot-price-row reveal" style="transition-delay:.23s">
+      <div class="spot-price-row reveal" style="transition-delay:.24s">
         <div class="spot-price">14,90 €</div>
-        <div class="spot-price-detail">TTC · Livraison offerte<br>dès 49 € d'achat</div>
+        <div class="spot-price-info">TTC · Livraison offerte<br>dès 49 € d'achat</div>
       </div>
       <a href="#" class="spot-cta reveal" style="transition-delay:.28s">
         Ajouter au panier
@@ -719,23 +677,24 @@
       </a>
     </div>
     <div class="spot-visual">
-      <div class="spot-bg-word">AUTO</div>
-      <svg class="spot-bottle" width="210" height="360" viewBox="0 0 160 290" fill="none">
-        <rect x="62" y="2" width="36" height="18" rx="5" fill="#1852E8"/>
-        <rect x="55" y="18" width="50" height="18" rx="4" fill="#1340C2"/>
-        <rect x="108" y="22" width="32" height="7" rx="3.5" fill="#1340C2"/>
-        <rect x="136" y="16" width="7" height="22" rx="3.5" fill="#1340C2"/>
-        <path d="M38 36 Q34 48 32 58 L32 256 Q32 264 40 264 L120 264 Q128 264 128 256 L128 58 Q126 48 122 36 Z" fill="#090F1C" stroke="#1852E8" stroke-width="1.5"/>
-        <rect x="32" y="88" width="96" height="108" fill="#0A1628"/>
-        <rect x="32" y="88" width="96" height="3" fill="#1852E8"/>
-        <rect x="32" y="193" width="96" height="3" fill="#1852E8"/>
-        <text x="80" y="128" text-anchor="middle" fill="white" font-size="13" letter-spacing="4.5" font-family="Barlow Condensed, sans-serif" font-weight="800">PURAVEX</text>
-        <text x="80" y="142" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5.5" letter-spacing="2.5" font-family="sans-serif">AUTO · PRO · FORMULA</text>
-        <rect x="48" y="152" width="64" height="0.7" fill="rgba(255,255,255,0.07)"/>
-        <text x="80" y="167" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7" letter-spacing="1.5" font-family="sans-serif">DÉGRAISSANT ULTRA</text>
-        <text x="80" y="181" text-anchor="middle" fill="rgba(24,82,232,0.75)" font-size="6" letter-spacing="1" font-family="sans-serif">PX-DS-500 / 500 ML</text>
-        <rect x="32" y="228" width="96" height="36" fill="rgba(0,0,0,0.12)"/>
-        <rect x="38" y="58" width="4" height="196" rx="2" fill="rgba(255,255,255,0.035)"/>
+      <div class="spot-visual-label">AUTO &amp; DETAILING — PX-DS-500</div>
+      <div class="spot-visual-ref">PURAVEX © 2026</div>
+      <svg class="spot-bottle" width="200" height="340" viewBox="0 0 140 260" fill="none">
+        <rect x="52" y="2" width="36" height="16" rx="5" fill="#1852E8"/>
+        <rect x="46" y="16" width="48" height="16" rx="4" fill="#1340C2"/>
+        <rect x="100" y="19" width="28" height="7" rx="3.5" fill="#1340C2"/>
+        <rect x="124" y="13" width="7" height="20" rx="3.5" fill="#1340C2"/>
+        <path d="M28 32 Q24 44 22 54 L22 230 Q22 238 30 238 L110 238 Q118 238 118 230 L118 54 Q116 44 112 32 Z" fill="#0B1F3A"/>
+        <rect x="22" y="78" width="96" height="96" fill="#162D50"/>
+        <rect x="22" y="78" width="96" height="3" fill="#1852E8"/>
+        <rect x="22" y="171" width="96" height="3" fill="#1852E8"/>
+        <text x="70" y="116" text-anchor="middle" fill="white" font-size="12" letter-spacing="4" font-family="Barlow Condensed, sans-serif" font-weight="800">PURAVEX</text>
+        <text x="70" y="130" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="5.5" letter-spacing="2" font-family="sans-serif">AUTO · PRO · FORMULA</text>
+        <rect x="38" y="140" width="64" height="0.7" fill="rgba(255,255,255,0.08)"/>
+        <text x="70" y="154" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7" letter-spacing="1.5" font-family="sans-serif">DÉGRAISSANT ULTRA</text>
+        <text x="70" y="166" text-anchor="middle" fill="rgba(24,82,232,0.8)" font-size="6" letter-spacing="1" font-family="sans-serif">PX-DS-500 / 500 ML</text>
+        <rect x="22" y="204" width="96" height="34" fill="rgba(0,0,0,0.1)"/>
+        <rect x="28" y="54" width="4" height="172" rx="2" fill="rgba(255,255,255,0.04)"/>
       </svg>
     </div>
   </div>
@@ -743,137 +702,175 @@
 
 <!-- ── CLIENTS ── -->
 <section class="clients-section" id="clients">
-  <div class="clients-head reveal">
-    <div>
-      <div class="clients-label">Secteurs d'activité</div>
-      <div class="clients-title">Qui utilise<br>Puravex ?</div>
-    </div>
-    <div class="clients-sub">Nos produits sont adoptés par des professionnels exigeants dans toute la France.</div>
-  </div>
-  <div class="clients-list">
-    <div class="client-item reveal">
-      <div class="client-num">01</div>
-      <div class="client-dot" style="background:#1852E8"></div>
-      <div class="client-name">Garages & Detailers</div>
-      <div class="client-desc">Carrosserie, mécanique, nettoyage véhicules premium</div>
-      <div class="client-arr">›</div>
-    </div>
-    <div class="client-item reveal" style="transition-delay:.05s">
-      <div class="client-num">02</div>
-      <div class="client-dot" style="background:#f59e0b"></div>
-      <div class="client-name">Hôtels & AirBnB</div>
-      <div class="client-desc">Nettoyage quotidien haute fréquence, normes sanitaires</div>
-      <div class="client-arr">›</div>
-    </div>
-    <div class="client-item reveal" style="transition-delay:.1s">
-      <div class="client-num">03</div>
-      <div class="client-dot" style="background:#A4B0BC"></div>
-      <div class="client-name">Industrie & BTP</div>
-      <div class="client-desc">Chantiers, ateliers, environnements industriels exigeants</div>
-      <div class="client-arr">›</div>
-    </div>
-    <div class="client-item reveal" style="transition-delay:.15s">
-      <div class="client-num">04</div>
-      <div class="client-dot" style="background:#10b981"></div>
-      <div class="client-name">Sociétés de nettoyage</div>
-      <div class="client-desc">Approvisionnement régulier, tarifs dégressifs volume</div>
-      <div class="client-arr">›</div>
-    </div>
-    <div class="client-item reveal" style="transition-delay:.2s">
-      <div class="client-num">05</div>
-      <div class="client-dot" style="background:#8b5cf6"></div>
-      <div class="client-name">Stations Service</div>
-      <div class="client-desc">Produits piste, lavage haute pression, volumes station</div>
-      <div class="client-arr">›</div>
+  <div class="clients-inner">
+    <div class="clients-layout">
+      <div>
+        <div class="section-tag reveal">Secteurs d'activité</div>
+        <div class="clients-aside-title reveal" style="transition-delay:.08s">Qui utilise<br>Puravex ?</div>
+      </div>
+      <div class="clients-list">
+        <div class="client-item reveal">
+          <div class="client-num">01</div>
+          <div class="client-dot" style="background:#1852E8"></div>
+          <div class="client-text">
+            <div class="client-name">Garages & Detailers</div>
+            <div class="client-desc">Carrosserie, mécanique, nettoyage de véhicules premium. La formulation pro qu'ils recommandent.</div>
+          </div>
+          <div class="client-arr">›</div>
+        </div>
+        <div class="client-item reveal" style="transition-delay:.05s">
+          <div class="client-num">02</div>
+          <div class="client-dot" style="background:#f59e0b"></div>
+          <div class="client-text">
+            <div class="client-name">Hôtels & AirBnB</div>
+            <div class="client-desc">Nettoyage quotidien haute fréquence, respect des normes sanitaires, approvisionnement régulier.</div>
+          </div>
+          <div class="client-arr">›</div>
+        </div>
+        <div class="client-item reveal" style="transition-delay:.1s">
+          <div class="client-num">03</div>
+          <div class="client-dot" style="background:#64748b"></div>
+          <div class="client-text">
+            <div class="client-name">Industrie & BTP</div>
+            <div class="client-desc">Chantiers, ateliers de production, environnements industriels exigeants.</div>
+          </div>
+          <div class="client-arr">›</div>
+        </div>
+        <div class="client-item reveal" style="transition-delay:.15s">
+          <div class="client-num">04</div>
+          <div class="client-dot" style="background:#10b981"></div>
+          <div class="client-text">
+            <div class="client-name">Sociétés de nettoyage</div>
+            <div class="client-desc">Approvisionnement régulier en grande quantité, tarifs dégressifs volume.</div>
+          </div>
+          <div class="client-arr">›</div>
+        </div>
+        <div class="client-item reveal" style="transition-delay:.2s">
+          <div class="client-num">05</div>
+          <div class="client-dot" style="background:#8b5cf6"></div>
+          <div class="client-text">
+            <div class="client-name">Stations Service</div>
+            <div class="client-desc">Produits piste, lavage haute pression, volumes station service.</div>
+          </div>
+          <div class="client-arr">›</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ── RÉSEAU PRO ── -->
 <section class="reseau-section" id="reseau">
-  <div class="reseau-top reveal">
-    <div class="reseau-label">Espace professionnel</div>
-    <div class="reseau-heading">Développez<br>votre activité</div>
+  <div class="reseau-header reveal">
+    <div class="section-tag">Espace professionnel</div>
+    <div class="reseau-title">Rejoignez le réseau Puravex</div>
+    <div class="reseau-sub">Deux façons de générer des revenus supplémentaires avec nos produits, avec ou sans stock.</div>
   </div>
   <div class="reseau-panels">
-    <div class="reseau-main reveal">
-      <div class="reseau-main-cat">Revendeur officiel</div>
-      <div class="reseau-main-name">Pack Revendeur<br>Puravex</div>
-      <div class="reseau-main-desc">Achetez au tarif grossiste et revendez avec vos propres marges. Idéal pour les auto-entrepreneurs, artisans et commerçants qui veulent diversifier leurs revenus.</div>
-      <div class="reseau-price-block">
-        <div class="reseau-price">150 €</div>
-        <div class="reseau-price-unit">Pack de démarrage<br>tout inclus</div>
-      </div>
+    <div class="reseau-panel reveal">
+      <div class="reseau-panel-tag">Revendeur officiel</div>
+      <div class="reseau-panel-name">Pack Revendeur</div>
+      <div class="reseau-panel-desc">Achetez au tarif grossiste et revendez avec vos propres marges. Idéal pour les auto-entrepreneurs, artisans et commerçants.</div>
+      <div class="reseau-price">150 €</div>
+      <div class="reseau-price-sub">Pack de démarrage — tout inclus</div>
       <div class="reseau-feats">
-        <div class="reseau-feat">Tarifs grossiste — 35% de remise immédiate</div>
-        <div class="reseau-feat">Kit produits de démarrage inclus</div>
-        <div class="reseau-feat">Support commercial dédié 7j/7</div>
-        <div class="reseau-feat">Badge revendeur officiel Puravex</div>
-        <div class="reseau-feat">Accès catalogue complet au tarif pro</div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Tarifs grossiste — 35% de remise
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Kit produits de démarrage inclus
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Support commercial dédié 7j/7
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Badge revendeur officiel Puravex
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Accès catalogue complet au tarif pro
+        </div>
       </div>
-      <a href="#contact" class="reseau-main-btn">
+      <a href="#contact" class="reseau-btn primary">
         Rejoindre le réseau
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="reseau-side reveal" style="transition-delay:.1s">
-      <div class="reseau-side-cat">Commercial indépendant</div>
-      <div class="reseau-side-name">Sans stock,<br>sans contrainte</div>
-      <div class="reseau-side-desc">Recommandez Puravex et percevez une commission sur chaque vente générée. Aucun investissement initial requis.</div>
-      <div class="reseau-side-price">0 €</div>
-      <div class="reseau-side-price-sub">Inscription gratuite — Commission immédiate</div>
-      <div class="reseau-side-feats">
-        <div class="reseau-side-feat">10 à 15% de commission par vente</div>
-        <div class="reseau-side-feat">Lien de parrainage personnalisé</div>
-        <div class="reseau-side-feat">Tableau de bord temps réel</div>
-        <div class="reseau-side-feat">Aucun stock à gérer</div>
+    <div class="reseau-panel reveal" style="transition-delay:.1s">
+      <div class="reseau-panel-tag">Commercial indépendant</div>
+      <div class="reseau-panel-name">Sans stock,<br>sans contrainte</div>
+      <div class="reseau-panel-desc">Pas de stock, pas d'investissement. Recommandez Puravex autour de vous et percevez une commission sur chaque vente.</div>
+      <div class="reseau-price">0 €</div>
+      <div class="reseau-price-sub">Inscription gratuite — Commission immédiate</div>
+      <div class="reseau-feats">
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          10 à 15% de commission par vente
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Lien de parrainage personnalisé
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Tableau de bord suivi en temps réel
+        </div>
+        <div class="reseau-feat">
+          <div class="reseau-feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+          Aucun stock à gérer
+        </div>
       </div>
-      <a href="#contact" class="reseau-side-btn">S'inscrire gratuitement</a>
+      <a href="#contact" class="reseau-btn secondary">S'inscrire gratuitement</a>
     </div>
   </div>
 </section>
 
 <!-- ── PROCESS ── -->
 <section class="process-section">
-  <div class="process-head reveal">
-    <div>
-      <div class="process-label">Commander</div>
-      <div class="process-title">Simple.<br>Rapide. 48h.</div>
+  <div class="process-inner">
+    <div class="process-head reveal">
+      <div>
+        <div class="process-tag">Commander</div>
+        <div class="process-title">Simple, rapide, livré en 48h</div>
+      </div>
     </div>
-    <div class="process-divider"></div>
-  </div>
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-n">01</div>
-      <div class="step-title">Choisissez votre gamme</div>
-      <div class="step-desc">Hôtellerie, auto, industrie ou station service — chaque gamme est formulée et dosée pour votre activité spécifique.</div>
-    </div>
-    <div class="process-step reveal" style="transition-delay:.1s">
-      <div class="step-n">02</div>
-      <div class="step-title">Sélectionnez votre statut</div>
-      <div class="step-desc">Particulier, revendeur ou commercial indépendant — trois niveaux de tarifs adaptés à chaque profil d'achat.</div>
-    </div>
-    <div class="process-step reveal" style="transition-delay:.2s">
-      <div class="step-n">03</div>
-      <div class="step-title">Réception sous 48h</div>
-      <div class="step-desc">Livraison partout en France avec suivi en temps réel. Paiement sécurisé, retours offerts sous 14 jours.</div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Choisissez votre gamme</div>
+        <div class="step-desc">Hôtellerie, auto, industrie ou station service — chaque gamme est formulée et dosée pour votre activité spécifique.</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.1s">
+        <div class="step-num">02</div>
+        <div class="step-title">Sélectionnez votre statut</div>
+        <div class="step-desc">Particulier, revendeur ou commercial indépendant — trois niveaux de tarifs adaptés à chaque profil d'achat.</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="step-num">03</div>
+        <div class="step-title">Réception sous 48h</div>
+        <div class="step-desc">Livraison partout en France avec suivi en temps réel. Paiement sécurisé, retours offerts sous 14 jours.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ── CTA ── -->
-<div class="cta-banner" id="contact">
+<div class="cta-section" id="contact">
   <div class="cta-inner">
     <div>
-      <div class="cta-label">Prêt à commencer ?</div>
-      <div class="cta-title">Rejoignez le réseau<br>Puravex.</div>
+      <div class="cta-tag">Prêt à commencer ?</div>
+      <div class="cta-title">Rejoignez le réseau<br>Puravex dès aujourd'hui.</div>
     </div>
     <div class="cta-actions">
-      <a href="#boutique" class="btn-cta-w">
+      <a href="#boutique" class="btn-primary">
         Voir la boutique
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="mailto:contact@puravex.fr" class="btn-cta-o">Nous contacter</a>
+      <a href="mailto:contact@puravex.fr" class="btn-outline">Nous contacter</a>
     </div>
   </div>
 </div>
@@ -882,9 +879,9 @@
 <footer>
   <div class="footer-top">
     <div>
-      <img src="logo.png" alt="Puravex" class="footer-logo-img">
-      <div class="footer-brand-ref">Groupe Cohesif — REF. PX-2026-FR</div>
-      <div class="footer-brand-desc">Formulations pro-grade pour l'automobile, l'hôtellerie et l'industrie. La référence du nettoyage professionnel en France.</div>
+      <img src="logo.png" alt="Puravex" class="footer-logo">
+      <div class="footer-tagline">Groupe Cohesif — Nettoyage Professionnel</div>
+      <div class="footer-desc">Formulations pro-grade pour l'automobile, l'hôtellerie et l'industrie. La référence du nettoyage professionnel en France.</div>
     </div>
     <div>
       <div class="footer-col-title">Gammes</div>
@@ -926,7 +923,7 @@
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+  }, { threshold: 0.07, rootMargin: '0px 0px -24px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   document.querySelectorAll('.hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 60 + i * 90);
