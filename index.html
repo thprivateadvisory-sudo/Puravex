@@ -108,12 +108,20 @@
     }
     .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-    .hero-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .hero-badge {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 12px; color: var(--text-3);
+    .trust-badges { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; }
+    .trust-badge {
+      display: flex; align-items: center; gap: 11px;
+      border: 1.5px solid var(--line); padding: 11px 14px;
+      background: var(--white); min-width: 160px;
     }
-    .hero-badge svg { width: 14px; height: 14px; stroke: var(--text-3); fill: none; stroke-width: 2; }
+    .trust-badge-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--blue-l); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-badge-icon svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2; }
+    .trust-badge-title { font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.1px; line-height: 1.2; }
+    .trust-badge-sub { font-size: 10px; color: var(--text-3); margin-top: 2px; }
 
     /* Hero visual */
     .hero-right {
@@ -562,18 +570,33 @@
         </a>
         <a href="#reseau" class="btn-outline">Devenir revendeur</a>
       </div>
-      <div class="hero-badges reveal" style="transition-delay:.32s">
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Satisfait ou remboursé 30 jours
+      <div class="trust-badges reveal" style="transition-delay:.32s">
+        <div class="trust-badge">
+          <div class="trust-badge-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="trust-badge-title">30 JOURS</div>
+            <div class="trust-badge-sub">Satisfait ou remboursé</div>
+          </div>
         </div>
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          Livraison 48h France
+        <div class="trust-badge">
+          <div class="trust-badge-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="trust-badge-title">LIVRAISON 48H</div>
+            <div class="trust-badge-sub">Offerte dès 49 €</div>
+          </div>
         </div>
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Certifié normes EU
+        <div class="trust-badge">
+          <div class="trust-badge-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div class="trust-badge-title">CERTIFIÉ EU</div>
+            <div class="trust-badge-sub">Normes européennes</div>
+          </div>
         </div>
       </div>
     </div>
