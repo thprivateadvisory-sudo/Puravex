@@ -74,43 +74,13 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
     }
 
-    .nav-logo-mark {
-      width: 36px;
-      height: 36px;
-      background: var(--blue-500);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-logo-mark svg { width: 20px; height: 20px; }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav-logo-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .nav-logo-name span { color: var(--blue-400); }
-
-    .nav-logo-sub {
-      font-size: 8px;
-      letter-spacing: 2.5px;
-      color: var(--silver-darker);
-      margin-top: 2px;
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -886,16 +856,13 @@
 
     .footer-brand {}
 
-    .footer-logo-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: var(--white);
-      margin-bottom: 6px;
+    .footer-logo-img {
+      height: 52px;
+      width: auto;
+      display: block;
+      margin-bottom: 14px;
     }
 
-    .footer-logo-name span { color: var(--blue-400); }
     .footer-logo-sub { font-size: 9px; letter-spacing: 2px; color: var(--silver-darker); margin-bottom: 16px; }
     .footer-brand-desc { font-size: 12px; color: var(--silver-dark); line-height: 1.7; }
 
@@ -979,17 +946,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <div class="nav-logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
-        </div>
-        <div class="nav-logo-text">
-          <div class="nav-logo-name">PURA<span>VEX</span></div>
-          <div class="nav-logo-sub">NETTOYAGE PROFESSIONNEL</div>
-        </div>
+        <img src="logo.png" alt="Puravex — Produits de Nettoyage Professionnels">
       </a>
       <div class="nav-links">
         <a href="#gammes">Gammes</a>
@@ -1386,7 +1343,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo-name">PURA<span>VEX</span></div>
+        <img src="logo.png" alt="Puravex" class="footer-logo-img">
         <div class="footer-logo-sub">Groupe Cohesif — Nettoyage Professionnel</div>
         <div class="footer-brand-desc">La référence du nettoyage professionnel en France. Formulations pro-grade pour tous les secteurs d'activité.</div>
       </div>
