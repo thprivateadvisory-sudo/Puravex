@@ -29,7 +29,7 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
       background: rgba(255,255,255,0.97); height: 68px; display: flex; align-items: center;
       border-bottom: 1px solid var(--line);
     }
@@ -394,7 +394,7 @@
       .nav-mobile-toggle { display: flex; }
     }
     @media (max-width: 640px) {
-      nav { height: 60px; }
+      nav { height: 60px; top: 0; }
       .nav-logo img { height: 36px; }
       .hero { padding-top: 60px; }
       .gammes-grid { grid-template-columns: 1fr; }
