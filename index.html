@@ -356,6 +356,24 @@
     .step-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
     /* ── CTA ── */
+    /* ── FAQ ── */
+    .faq-section { background: var(--white); padding: 80px 0; border-top: 1px solid var(--line); }
+    .faq-inner { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 3.5vw, 48px); font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 1; margin-top: 8px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 22px 0; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: 'Barlow', sans-serif;
+    }
+    .faq-question-text { font-size: 16px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .faq-icon { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s, border-color .2s; }
+    .faq-icon svg { width: 14px; height: 14px; stroke: var(--navy); fill: none; stroke-width: 2.5; transition: transform .3s; }
+    .faq-item.open .faq-icon { background: var(--blue); border-color: var(--blue); }
+    .faq-item.open .faq-icon svg { stroke: #fff; transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-answer-inner { padding: 0 0 20px; font-size: 14px; color: var(--text-2); line-height: 1.75; }
     .cta-section { background: var(--blue-l); border-top: 1px solid var(--blue-m); padding: 72px 0; }
     .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 60px; }
     .cta-tag { font-size: 10px; font-weight: 600; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
@@ -1210,6 +1228,83 @@
     </div>
   </div>
 </section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-tag">Questions fréquentes</div>
+      <div class="faq-title">On répond à tout</div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">Vos produits sont-ils vraiment concentrés ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Oui. Nos formulations sont conçues pour être diluées entre 1:5 et 1:10 selon le produit. Concrètement, 1 litre de concentré Puravex donne jusqu'à 10 litres de produit fini — pour un coût réel d'environ 1,80 € par litre utilisé. Chaque fiche produit indique le ratio exact.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">La livraison en 48h, c'est vraiment garanti ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Pour toute commande passée avant 14h en semaine, l'expédition se fait le jour même. La livraison est assurée sous 48h ouvrées partout en France métropolitaine. Vous recevez un lien de suivi par e-mail dès l'expédition.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">Je peux retourner un produit si je ne suis pas satisfait ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Absolument. Nous offrons 30 jours satisfait ou remboursé, sans condition. Si le produit ne vous convient pas, contactez-nous et on prend en charge le retour. Aucune justification n'est demandée.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">Vos produits sont-ils conformes aux normes européennes ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Tous nos produits sont formulés et testés selon les normes EU en vigueur (REACH, CLP, biocides). Chaque produit dispose d'une fiche de données de sécurité (FDS) disponible sur demande. Vous pouvez les commander en toute conformité pour votre activité professionnelle.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">Y a-t-il des tarifs spéciaux pour les revendeurs ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Oui. Nous proposons 3 niveaux de tarifs : particulier, professionnel, et revendeur agréé. Les revendeurs bénéficient de marges exclusives, d'un accès à des packs volume, et d'un interlocuteur dédié. Rendez-vous sur l'espace revendeur ou contactez-nous directement.</div></div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        <span class="faq-question-text">Comment passer ma première commande ?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-answer"><div class="faq-answer-inner">Choisissez vos produits dans notre catalogue, ajoutez-les au panier et procédez au paiement sécurisé (CB, virement, Klarna). La livraison est offerte dès 49 € d'achat. En cas de question avant commande, notre équipe répond par e-mail ou WhatsApp sous 2h en semaine.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
 
 <!-- ── CTA ── -->
 <div class="cta-section" id="contact">
