@@ -63,13 +63,13 @@
 
     /* ── HERO ── */
     .hero {
-      padding-top: 68px; min-height: 100vh; display: flex; flex-direction: column;
+      padding-top: 108px; min-height: 100vh; display: flex; flex-direction: column;
       background: var(--white);
     }
     .hero-main {
       flex: 1; display: grid; grid-template-columns: 1fr 460px;
       max-width: 1200px; margin: 0 auto; padding: 0 32px;
-      min-height: calc(100vh - 68px - 72px); width: 100%;
+      min-height: calc(100vh - 108px - 72px); width: 100%;
       align-items: center; gap: 60px;
     }
     .hero-left { padding: 60px 0; }
@@ -415,12 +415,111 @@
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── URGENCY BAR ── */
+    .urgency-bar {
+      background: #0B1F3A; padding: 10px 0; text-align: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    }
+    .urgency-bar-inner {
+      display: flex; align-items: center; justify-content: center; gap: 24px;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px; flex-wrap: wrap;
+    }
+    .urgency-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: rgba(255,255,255,0.85); letter-spacing: 0.3px;
+    }
+    .urgency-item strong { color: #fff; font-weight: 600; }
+    .urgency-sep { color: rgba(255,255,255,0.2); font-size: 10px; }
+    @media (max-width: 640px) { .urgency-bar { display: none; } }
+
+    /* ── WHY SECTION ── */
+    .why-section { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--line); }
+    .why-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .why-top { margin-bottom: 48px; }
+    .why-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 4vw, 52px);
+      font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 1;
+      max-width: 600px;
+    }
+    .why-title span { color: var(--blue); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border: 1px solid var(--line);
+    }
+    .why-card {
+      padding: 36px 28px; border-right: 1px solid var(--line); position: relative;
+    }
+    .why-card:last-child { border-right: none; }
+    .why-card-num {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 800;
+      color: var(--blue); line-height: 1; margin-bottom: 12px;
+    }
+    .why-card-num em { font-style: normal; font-size: 28px; color: var(--text-3); }
+    .why-card-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .why-card-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-card:nth-child(2) { border-right: none; }
+      .why-card:nth-child(1), .why-card:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; }
+      .why-card { border-right: none; border-bottom: 1px solid var(--line); }
+      .why-card:last-child { border-bottom: none; }
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-section { background: var(--gray); padding: 80px 0; }
+    .testi-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .testi-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
+    .testi-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 800; text-transform: uppercase; color: var(--navy); line-height: 1;
+    }
+    .testi-rating { display: flex; align-items: center; gap: 8px; }
+    .testi-stars { color: #F59E0B; font-size: 18px; letter-spacing: 2px; }
+    .testi-score { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 700; color: var(--navy); }
+    .testi-score-sub { font-size: 12px; color: var(--text-3); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+    .testi-card { background: var(--white); padding: 36px 32px; }
+    .testi-quote-mark { font-family: Georgia, serif; font-size: 64px; color: var(--blue); line-height: 0.6; margin-bottom: 20px; opacity: 0.25; }
+    .testi-text { font-size: 15px; color: var(--text-2); line-height: 1.7; margin-bottom: 28px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .testi-role { font-size: 11px; color: var(--text-3); margin-top: 2px; letter-spacing: 0.3px; }
+    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+
+    /* ── GUARANTEE BADGE ── */
+    .guarantee-strip {
+      display: flex; align-items: center; gap: 10px; padding: 14px 20px;
+      background: #F0FDF4; border: 1px solid #86efac; margin-top: 20px;
+    }
+    .guarantee-strip svg { width: 20px; height: 20px; stroke: #16a34a; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .guarantee-text { font-size: 13px; color: #15803d; line-height: 1.4; }
+    .guarantee-text strong { font-weight: 700; }
+
+    /* ── SPOT RATING ── */
+    .spot-stars { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .spot-stars-icons { color: #F59E0B; font-size: 14px; letter-spacing: 1px; }
+    .spot-stars-val { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .spot-stars-count { font-size: 12px; color: var(--text-3); }
   </style>
 </head>
 <body>
 
+<!-- ── URGENCY BAR ── -->
+<div class="urgency-bar">
+  <div class="urgency-bar-inner">
+    <div class="urgency-item">🚚 <strong>Livraison offerte</strong> dès 49 €</div>
+    <div class="urgency-sep">|</div>
+    <div class="urgency-item">⭐ <strong>4.8/5</strong> — Plus de 500 professionnels</div>
+    <div class="urgency-sep">|</div>
+    <div class="urgency-item">✅ <strong>Satisfait ou remboursé</strong> 30 jours</div>
+  </div>
+</div>
+
 <!-- ── NAV ── -->
-<nav>
+<nav style="top:40px">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <img src="logo.png" alt="Puravex">
@@ -450,16 +549,16 @@
     <!-- Left -->
     <div class="hero-left">
       <h1 class="reveal" style="transition-delay:.08s">
-        La formulation<br>
-        qui fait la<br>
-        <span class="hl">différence.</span>
+        Qualité Pro.<br>
+        Prix direct<br>
+        <span class="hl">distributeur.</span>
       </h1>
       <p class="hero-desc reveal" style="transition-delay:.16s">
-        Des produits formulés pour les environnements exigeants. Hôtels, garages, sociétés de nettoyage, stations service. Qualité professionnelle, livraison en 48h.
+        Formulations concentrées, testées sur le terrain. Vos clients voient la différence dès le premier passage. Garages, hôtels, industries : commandez au tarif pro, livré en 48h.
       </p>
       <div class="hero-actions reveal" style="transition-delay:.24s">
         <a href="#gammes" class="btn-primary">
-          Découvrir nos gammes
+          Voir les prix pro
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#reseau" class="btn-outline">Devenir revendeur</a>
@@ -467,7 +566,7 @@
       <div class="hero-badges reveal" style="transition-delay:.32s">
         <div class="hero-badge">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Normes EU certifiées
+          Satisfait ou remboursé 30 jours
         </div>
         <div class="hero-badge">
           <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -475,7 +574,7 @@
         </div>
         <div class="hero-badge">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Paiement sécurisé
+          Certifié normes EU
         </div>
       </div>
     </div>
@@ -535,20 +634,20 @@
   <!-- KPIs -->
   <div class="hero-kpis">
     <div class="kpi-item reveal">
-      <div class="kpi-num">4</div>
-      <div class="kpi-label">Gammes<br>professionnelles</div>
+      <div class="kpi-num">500<em>+</em></div>
+      <div class="kpi-label">Clients pro<br>actifs en France</div>
     </div>
     <div class="kpi-item reveal" style="transition-delay:.07s">
       <div class="kpi-num">48<em>H</em></div>
       <div class="kpi-label">Livraison<br>France entière</div>
     </div>
     <div class="kpi-item reveal" style="transition-delay:.14s">
-      <div class="kpi-num">B2B</div>
-      <div class="kpi-label">Tarifs<br>professionnels</div>
+      <div class="kpi-num">-35<em>%</em></div>
+      <div class="kpi-label">Tarif pro<br>vs grande surface</div>
     </div>
     <div class="kpi-item reveal" style="transition-delay:.21s">
-      <div class="kpi-num">×<em>2</em></div>
-      <div class="kpi-label">Marge revendeur<br>garantie</div>
+      <div class="kpi-num">×<em>10</em></div>
+      <div class="kpi-label">Dilution concentrée<br>coût réel minimal</div>
     </div>
   </div>
 </section>
@@ -574,6 +673,38 @@
     </div>
   </div>
 </div>
+
+<!-- ── POURQUOI PURAVEX ── -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-top reveal">
+      <div class="section-tag">Nos engagements</div>
+      <div class="why-title">Pourquoi les pros<br>choisissent <span>Puravex</span></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-num">×10<em>&nbsp;dilution</em></div>
+        <div class="why-card-title">Concentré haute performance</div>
+        <div class="why-card-desc">1 litre Puravex = 10 litres de produit fini. Coût réel de 1,80 € par litre utilisé. Zéro gaspillage, stockage minimal.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.08s">
+        <div class="why-card-num">-35<em>%</em></div>
+        <div class="why-card-title">Prix direct distributeur</div>
+        <div class="why-card-desc">Tarifs professionnels réservés : jusqu'à 35% moins cher qu'en grande surface pour une qualité supérieure, certifiée sur le terrain.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.16s">
+        <div class="why-card-num">48<em>H</em></div>
+        <div class="why-card-title">Livraison garantie</div>
+        <div class="why-card-desc">Stock permanent, expédition le jour même avant 14h. Suivi en temps réel, livraison partout en France métropolitaine.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.24s">
+        <div class="why-card-num">30<em>&nbsp;J</em></div>
+        <div class="why-card-title">Satisfait ou remboursé</div>
+        <div class="why-card-desc">Pas convaincu ? On vous rembourse sans question. Parce qu'on est sûrs de nos formulations. Aucun risque pour vous.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── GAMMES ── -->
 <section class="gammes-section" id="gammes">
@@ -641,6 +772,11 @@
   <div class="spotlight-inner">
     <div class="spot-sheet">
       <div class="spot-tag reveal">Produit vedette</div>
+      <div class="spot-stars reveal">
+        <span class="spot-stars-icons">★★★★★</span>
+        <span class="spot-stars-val">4.9</span>
+        <span class="spot-stars-count">(127 avis vérifiés)</span>
+      </div>
       <div class="spot-ref reveal" style="transition-delay:.05s">Réf. PX-DS-500 / Gamme Auto</div>
       <div class="spot-name reveal" style="transition-delay:.1s">Dégraissant</div>
       <div class="spot-subname reveal" style="transition-delay:.13s">Ultra Pro</div>
@@ -671,6 +807,10 @@
         Ajouter au panier
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <div class="guarantee-strip reveal" style="transition-delay:.32s">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="guarantee-text"><strong>Satisfait ou remboursé 30 jours.</strong> Si ce produit ne vous convainc pas, on vous rembourse intégralement, sans condition.</div>
+      </div>
     </div>
     <div class="spot-visual">
       <div class="spot-visual-label">AUTO &amp; DETAILING / PX-DS-500</div>
@@ -749,6 +889,62 @@
             <div class="client-desc">Produits piste, lavage haute pression, volumes station service.</div>
           </div>
           <div class="client-arr">›</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGES ── -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div class="testi-head reveal">
+      <div>
+        <div class="section-tag">Ils utilisent Puravex</div>
+        <div class="testi-title">Ce qu'en disent<br>nos clients pro</div>
+      </div>
+      <div class="testi-rating">
+        <div>
+          <div class="testi-stars">★★★★★</div>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px">
+            <div class="testi-score">4.8</div>
+            <div class="testi-score-sub">/5 — 312 avis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">Le nettoyant freins, c'est la seule référence qu'on commande depuis 2 ans. Résultat nickel à froid, sans odeur agressive. Nos clients le remarquent, on a arrêté tout le reste.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#1852E8">K</div>
+          <div>
+            <div class="testi-name">Karim B.</div>
+            <div class="testi-role">Gérant garage · Toulouse</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.08s">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">Je gère 12 logements AirBnB. Je commande en pack tous les 2 mois. Le multi-surfaces sent bon, désinfecte vraiment, et mes coûts de nettoyage ont baissé de 30% depuis que je suis passée sur Puravex.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#f59e0b">S</div>
+          <div>
+            <div class="testi-name">Sophie L.</div>
+            <div class="testi-role">Propriétaire AirBnB · Lyon</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.16s">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">J'ai recommandé Puravex à 6 garages dans mon secteur. Facile à vendre, le produit se vend tout seul. Et les clients renouvellent automatiquement. La marge est vraiment là.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#10b981">M</div>
+          <div>
+            <div class="testi-name">Marc D.</div>
+            <div class="testi-role">Commercial revendeur · Bordeaux</div>
+          </div>
         </div>
       </div>
     </div>
@@ -858,15 +1054,20 @@
 <div class="cta-section" id="contact">
   <div class="cta-inner">
     <div>
-      <div class="cta-tag">Prêt à commencer ?</div>
-      <div class="cta-title">Rejoignez le réseau<br>Puravex dès aujourd'hui.</div>
+      <div class="cta-tag">Aucun risque. Aucune contrainte.</div>
+      <div class="cta-title">Essayez Puravex.<br>Remboursé si pas convaincu.</div>
+      <div style="margin-top:16px;font-size:14px;color:var(--text-2);display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+        <span>✓ Livraison offerte dès 49 €</span>
+        <span>✓ Satisfait ou remboursé 30 jours</span>
+        <span>✓ Tarifs pro sans engagement</span>
+      </div>
     </div>
     <div class="cta-actions">
       <a href="#boutique" class="btn-primary">
-        Voir la boutique
+        Commander maintenant
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="mailto:contact@puravex.fr" class="btn-outline">Nous contacter</a>
+      <a href="mailto:contact@puravex.fr" class="btn-outline">Parler à un conseiller</a>
     </div>
   </div>
 </div>
