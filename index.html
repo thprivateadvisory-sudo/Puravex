@@ -24,12 +24,12 @@
       --white:  #FFFFFF;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--text); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--text); overflow-x: clip; }
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 1000;
       background: rgba(255,255,255,0.97); height: 68px; display: flex; align-items: center;
       border-bottom: 1px solid var(--line);
     }
@@ -419,7 +419,7 @@
     /* ── URGENCY BAR ── */
     .urgency-bar {
       background: #0B1F3A; padding: 10px 0; text-align: center;
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
     }
     .urgency-bar-inner {
       display: flex; align-items: center; justify-content: center; gap: 24px;
