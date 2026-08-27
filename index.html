@@ -263,7 +263,7 @@
     .spot-spec:last-child { border-right: none; }
     .spot-spec-label { font-size: 9px; font-weight: 600; color: var(--text-3); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
     .spot-spec-val { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); }
-    .spot-price-row { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 28px; }
+    .spot-price-row { display: flex; align-items: flex-end; gap: 20px; margin-bottom: 16px; }
     .spot-price { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 700; color: var(--navy); line-height: 1; }
     .spot-price-info { font-size: 12px; color: var(--text-3); line-height: 1.7; padding-bottom: 8px; }
     .spot-cta {
@@ -272,6 +272,23 @@
       display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; transition: background .2s;
     }
     .spot-cta:hover { background: #1340C2; }
+
+    /* ── STOCK BADGE ── */
+    .stock-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #c2410c;
+      background: #fff7ed; border: 1px solid #fed7aa;
+      border-radius: 6px; padding: 8px 12px; margin-bottom: 20px;
+      width: fit-content;
+    }
+    .stock-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #ea580c;
+      flex-shrink: 0; animation: pulse-stock 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-stock {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .35; transform: scale(.65); }
+    }
 
     .spot-visual {
       background: var(--gray); display: flex; align-items: center; justify-content: center;
@@ -878,6 +895,10 @@
       <div class="spot-price-row reveal" style="transition-delay:.24s">
         <div class="spot-price">14,90 €</div>
         <div class="spot-price-info">TTC · Livraison offerte<br>dès 49 € d'achat</div>
+      </div>
+      <div class="stock-badge reveal" style="transition-delay:.26s">
+        <span class="stock-dot"></span>
+        <span>Seulement <strong>11 unités</strong> disponibles — Rupture de stock prévue</span>
       </div>
       <a href="#" class="spot-cta reveal" style="transition-delay:.28s">
         Ajouter au panier
