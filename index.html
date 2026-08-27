@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURAVEX — Produits de Nettoyage Professionnels</title>
+  <meta name="description" content="PURAVEX, la référence du nettoyage professionnel en France. Formulations pro-grade pour hôtels, garages, sociétés de nettoyage et stations service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-900: #020810;
+      --navy-800: #040d1a;
+      --navy-700: #071424;
+      --navy-600: #0a1c32;
+      --navy-500: #0f2545;
+      --navy-400: #163057;
+      --blue-600: #1d4ed8;
+      --blue-500: #2563eb;
+      --blue-400: #3b82f6;
+      --blue-300: #60a5fa;
+      --blue-200: #93c5fd;
+      --silver: #94a3b8;
+      --silver-dark: #475569;
+      --silver-darker: #334155;
+      --silver-darkest: #1e293b;
+      --white: #ffffff;
+      --off-white: #f1f5f9;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy-900);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .display { font-family: 'Barlow Condensed', sans-serif; }
+    .label-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(2, 8, 16, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-500);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark svg { width: 20px; height: 20px; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-logo-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .nav-logo-name span { color: var(--blue-400); }
+
+    .nav-logo-sub {
+      font-size: 8px;
+      letter-spacing: 2.5px;
+      color: var(--silver-darker);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--silver-dark);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue-500);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .nav-cta:hover { background: var(--blue-600); }
+
+    .nav-mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--silver);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--navy-900);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow-line {
+      width: 32px;
+      height: 1.5px;
+      background: var(--blue-400);
+    }
+
+    .hero-eyebrow-text {
+      color: var(--blue-300);
+      font-size: 10px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 .accent { color: var(--blue-400); }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--silver-dark);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--blue-500);
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background .2s, transform .1s;
+    }
+
+    .btn-primary:hover { background: var(--blue-600); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--silver);
+      border: 1px solid var(--silver-darkest);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--silver-dark); color: var(--white); }
+
+    /* Hero visual */
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .product-card {
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color .3s, transform .3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      border-color: var(--blue-500);
+      transform: translateY(-4px);
+    }
+
+    .product-card.featured {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      text-align: left;
+      border-color: var(--navy-400);
+    }
+
+    .product-bottle {
+      width: 64px;
+      height: 96px;
+      flex-shrink: 0;
+      margin: 0 auto 16px;
+    }
+
+    .product-card.featured .product-bottle {
+      width: 72px;
+      height: 108px;
+      margin: 0;
+    }
+
+    .product-card-info {}
+    .product-cat {
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--blue-300);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .product-ref {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--silver-darker);
+      margin-bottom: 10px;
+    }
+
+    .product-badge {
+      display: inline-block;
+      background: rgba(37,99,235,0.15);
+      color: var(--blue-300);
+      font-size: 9px;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(37,99,235,0.2);
+    }
+
+    /* Hero KPIs */
+    .hero-kpis {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .kpi-item {
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .kpi-item:last-child { border-right: none; }
+
+    .kpi-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .kpi-num span { color: var(--blue-400); }
+    .kpi-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--silver-darker);
+      text-transform: uppercase;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--navy-800);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding: 16px 0;
+    }
+
+    .trust-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--silver-darker);
+    }
+
+    .trust-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue-500);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 0; }
+
+    .section-eyebrow {
+      color: var(--blue-400);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--silver-dark);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .section-header { margin-bottom: 56px; }
+
+    /* ── GAMMES ── */
+    .gammes-section { background: var(--navy-800); }
+
+    .gammes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .gamme-card {
+      background: var(--navy-800);
+      padding: 36px 32px;
+      cursor: pointer;
+      transition: background .2s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+    }
+
+    .gamme-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--blue-500);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .gamme-card:hover::before { opacity: 0.04; }
+    .gamme-card:hover .gamme-arrow { color: var(--blue-400); transform: translateX(4px); }
+
+    .gamme-card-inner { position: relative; z-index: 1; }
+
+    .gamme-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .gamme-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--blue-400);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .gamme-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .gamme-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .gamme-arrow {
+      color: var(--silver-darkest);
+      font-size: 20px;
+      transition: color .2s, transform .2s;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .gamme-desc {
+      font-size: 13px;
+      color: var(--silver-dark);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .gamme-count {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--blue-400);
+      text-transform: uppercase;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── CIBLES ── */
+    .cibles-section { background: var(--navy-900); }
+
+    .cibles-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .cibles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cible-row {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: padding-left .2s;
+    }
+
+    .cible-row:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
+    .cible-row:hover { padding-left: 8px; }
+
+    .cible-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      color: var(--silver-darkest);
+      font-weight: 600;
+      width: 24px;
+      flex-shrink: 0;
+    }
+
+    .cible-ind {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cible-text { flex: 1; }
+    .cible-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .cible-desc { font-size: 12px; color: var(--silver-dark); line-height: 1.5; }
+    .cible-arr { color: var(--silver-darkest); font-size: 18px; }
+
+    .cibles-aside {
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .cibles-aside-label {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      color: var(--silver-darker);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .aside-stat {
+      margin-bottom: 28px;
+    }
+
+    .aside-stat:last-child { margin-bottom: 0; }
+
+    .aside-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .aside-stat-num span { color: var(--blue-400); }
+    .aside-stat-label { font-size: 12px; color: var(--silver-dark); }
+
+    /* ── RÉSEAU PRO ── */
+    .reseau-section {
+      background: var(--navy-800);
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .reseau-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .reseau-card {
+      border-radius: 16px;
+      padding: 40px 36px;
+      border: 1px solid var(--navy-500);
+      background: var(--navy-700);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reseau-card.featured {
+      background: var(--navy-600);
+      border-color: var(--blue-500);
+    }
+
+    .reseau-eyebrow {
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .reseau-eyebrow.blue { color: var(--blue-300); }
+    .reseau-eyebrow.gray { color: var(--silver-darker); }
+
+    .reseau-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .reseau-desc {
+      font-size: 13px;
+      color: var(--silver-dark);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .reseau-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .reseau-price-sub {
+      font-size: 11px;
+      color: var(--silver-darker);
+      margin-bottom: 28px;
+    }
+
+    .reseau-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex: 1;
+    }
+
+    .reseau-feat {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--silver);
+    }
+
+    .feat-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--blue-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feat-check svg { width: 10px; height: 10px; stroke: var(--blue-400); stroke-width: 2.5; fill: none; }
+
+    .reseau-btn {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .reseau-card.featured .reseau-btn {
+      background: var(--blue-500);
+      color: var(--white);
+    }
+
+    .reseau-card.featured .reseau-btn:hover { background: var(--blue-600); }
+
+    .reseau-card:not(.featured) .reseau-btn {
+      background: rgba(255,255,255,0.05);
+      color: var(--silver);
+      border: 1px solid var(--navy-500);
+    }
+
+    .reseau-card:not(.featured) .reseau-btn:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+    }
+
+    /* ── PROCESS ── */
+    .process-section { background: var(--navy-900); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: calc(33.33% - 24px);
+      right: calc(33.33% - 24px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue-500), transparent 50%, var(--blue-500));
+      opacity: 0.3;
+    }
+
+    .process-step { position: relative; }
+
+    .step-num-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--navy-700);
+      border: 1px solid var(--navy-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blue-400);
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .step-desc { font-size: 13px; color: var(--silver-dark); line-height: 1.7; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--navy-600);
+      border-top: 1px solid var(--blue-500);
+      padding: 72px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-text {}
+    .cta-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .cta-desc { font-size: 14px; color: var(--silver-dark); }
+    .cta-actions { display: flex; gap: 14px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-900);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 60px 0 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-logo-name span { color: var(--blue-400); }
+    .footer-logo-sub { font-size: 9px; letter-spacing: 2px; color: var(--silver-darker); margin-bottom: 16px; }
+    .footer-brand-desc { font-size: 12px; color: var(--silver-dark); line-height: 1.7; }
+
+    .footer-col-title {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--silver-darker);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--silver-dark);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 11px; color: var(--silver-darkest); }
+    .footer-group { font-size: 11px; color: var(--silver-darkest); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero h1 { font-size: 44px; }
+      .hero-kpis { grid-template-columns: repeat(2, 1fr); }
+      .gammes-grid { grid-template-columns: 1fr; }
+      .cibles-layout { grid-template-columns: 1fr; }
+      .reseau-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-steps::before { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .cta-inner { flex-direction: column; }
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .trust-inner { flex-direction: column; gap: 12px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 36px; }
+      .section-title { font-size: 30px; }
+      .hero-kpis { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; }
+      .reseau-price { font-size: 36px; }
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <div class="nav-logo-name">PURA<span>VEX</span></div>
+          <div class="nav-logo-sub">NETTOYAGE PROFESSIONNEL</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#gammes">Gammes</a>
+        <a href="#cibles">Nos clients</a>
+        <a href="#reseau">Espace pro</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#boutique" class="nav-cta">Commander</a>
+      <div class="nav-mobile-toggle" onclick="this.classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-main">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-eyebrow reveal">
+            <div class="hero-eyebrow-line"></div>
+            <div class="hero-eyebrow-text">Formulation pro-grade — Groupe Cohesif</div>
+          </div>
+          <h1 class="reveal" style="transition-delay:.1s">
+            La référence<br>
+            du nettoyage<br>
+            <span class="accent">professionnel</span><br>
+            en France
+          </h1>
+          <p class="hero-desc reveal" style="transition-delay:.2s">
+            Des produits formulés pour les environnements exigeants. Hôtels, garages, sociétés de nettoyage, stations service. Disponibles en direct ou via notre réseau de revendeurs.
+          </p>
+          <div class="hero-actions reveal" style="transition-delay:.3s">
+            <a href="#gammes" class="btn-primary">
+              Découvrir nos produits
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#reseau" class="btn-secondary">Rejoindre le réseau</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" style="transition-delay:.2s">
+          <div class="product-card featured">
+            <svg class="product-bottle" viewBox="0 0 72 108" fill="none">
+              <rect x="26" y="0" width="20" height="10" rx="5" fill="#163057"/>
+              <rect x="20" y="8" width="32" height="8" rx="4" fill="#1e3a6e"/>
+              <rect x="12" y="14" width="48" height="84" rx="12" fill="#0f2040" stroke="#1e3a6e" stroke-width="1"/>
+              <rect x="12" y="14" width="48" height="22" rx="12" fill="#162444"/>
+              <rect x="16" y="48" width="40" height="0.5" fill="#1e293b"/>
+              <rect x="16" y="72" width="40" height="0.5" fill="#1e293b"/>
+              <text x="36" y="64" text-anchor="middle" fill="#2563eb" font-size="8" letter-spacing="1.5" font-family="Barlow Condensed, sans-serif" font-weight="600">PURAVEX</text>
+              <text x="36" y="78" text-anchor="middle" fill="#334155" font-size="6" letter-spacing="1" font-family="sans-serif">PRO FORMULA</text>
+            </svg>
+            <div class="product-card-info">
+              <div class="product-cat">Gamme Industrie</div>
+              <div class="product-name">Dégraissant Ultra Pro</div>
+              <div class="product-ref">Réf. PVX-DG-5L</div>
+              <div class="product-badge">Concentré × 10</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <svg class="product-bottle" viewBox="0 0 64 96" fill="none">
+              <rect x="22" y="0" width="20" height="8" rx="4" fill="#163057"/>
+              <rect x="16" y="6" width="32" height="8" rx="4" fill="#1e3a6e"/>
+              <rect x="10" y="12" width="44" height="74" rx="10" fill="#0f2040" stroke="#1e3a6e" stroke-width="1"/>
+              <rect x="14" y="42" width="36" height="0.5" fill="#1e293b"/>
+              <text x="32" y="60" text-anchor="middle" fill="#60a5fa" font-size="7" letter-spacing="1" font-family="Barlow Condensed, sans-serif" font-weight="600">PURAVEX</text>
+            </svg>
+            <div class="product-cat">Gamme Auto</div>
+            <div class="product-name">Nettoyant Freins</div>
+            <div class="product-badge">500ml</div>
+          </div>
+          <div class="product-card">
+            <svg class="product-bottle" viewBox="0 0 64 96" fill="none">
+              <rect x="22" y="0" width="20" height="8" rx="4" fill="#1a2d1a"/>
+              <rect x="16" y="6" width="32" height="8" rx="4" fill="#1e401e"/>
+              <rect x="10" y="12" width="44" height="74" rx="10" fill="#0a1f0a" stroke="#1e401e" stroke-width="1"/>
+              <rect x="14" y="42" width="36" height="0.5" fill="#1e293b"/>
+              <text x="32" y="60" text-anchor="middle" fill="#4ade80" font-size="7" letter-spacing="1" font-family="Barlow Condensed, sans-serif" font-weight="600">PURAVEX</text>
+            </svg>
+            <div class="product-cat">Gamme Hôtellerie</div>
+            <div class="product-name">Multi-Surfaces Pro</div>
+            <div class="product-badge">1L</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-kpis">
+    <div class="kpi-item reveal">
+      <div class="kpi-num">4</div>
+      <div class="kpi-label">Gammes professionnelles</div>
+    </div>
+    <div class="kpi-item reveal" style="transition-delay:.1s">
+      <div class="kpi-num">48<span>H</span></div>
+      <div class="kpi-label">Livraison France entière</div>
+    </div>
+    <div class="kpi-item reveal" style="transition-delay:.2s">
+      <div class="kpi-num">B2B</div>
+      <div class="kpi-label">Tarifs professionnels</div>
+    </div>
+    <div class="kpi-item reveal" style="transition-delay:.3s">
+      <div class="kpi-num">×<span>2</span></div>
+      <div class="kpi-label">Marge revendeur garantie</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><div class="trust-dot"></div>Produits conformes aux normes européennes</div>
+      <div class="trust-item"><div class="trust-dot"></div>Livraison France 48h — Suivi en temps réel</div>
+      <div class="trust-item"><div class="trust-dot"></div>Paiement 100% sécurisé — CB, virement, Klarna</div>
+      <div class="trust-item"><div class="trust-dot"></div>Retours offerts 14 jours</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GAMMES ── -->
+<section class="gammes-section" id="gammes">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Nos gammes</div>
+      <div class="section-title">Un produit pour<br>chaque secteur</div>
+      <div class="section-sub">Des formulations adaptées à chaque environnement professionnel, testées et validées sur le terrain.</div>
+    </div>
+    <div class="gammes-grid">
+      <a href="#" class="gamme-card reveal">
+        <div class="gamme-card-inner">
+          <div class="gamme-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="gamme-top">
+            <div class="gamme-name">Hôtellerie & AirBnB</div>
+            <div class="gamme-arrow">›</div>
+          </div>
+          <div class="gamme-desc">Multi-surfaces, désinfectants, produits sanitaires et sols. Formulations haute fréquence pour les environnements d'hébergement professionnels.</div>
+          <div class="gamme-count">6 produits disponibles</div>
+        </div>
+      </a>
+      <a href="#" class="gamme-card reveal" style="transition-delay:.1s">
+        <div class="gamme-card-inner">
+          <div class="gamme-icon">
+            <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v5"/><circle cx="16" cy="17" r="3"/><circle cx="7" cy="17" r="3"/></svg>
+          </div>
+          <div class="gamme-top">
+            <div class="gamme-name">Auto & Detailing</div>
+            <div class="gamme-arrow">›</div>
+          </div>
+          <div class="gamme-desc">Nettoyant freins, shampoing carrosserie, polish, dégraissant moteur. La référence pour les garages, detailers et stations de lavage.</div>
+          <div class="gamme-count">8 produits disponibles</div>
+        </div>
+      </a>
+      <a href="#" class="gamme-card reveal" style="transition-delay:.1s">
+        <div class="gamme-card-inner">
+          <div class="gamme-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <div class="gamme-top">
+            <div class="gamme-name">Industrie & BTP</div>
+            <div class="gamme-arrow">›</div>
+          </div>
+          <div class="gamme-desc">Décapants puissants, dégraissants lourds, nettoyants industriels. Pour les chantiers, ateliers et environnements de production exigeants.</div>
+          <div class="gamme-count">5 produits disponibles</div>
+        </div>
+      </a>
+      <a href="#" class="gamme-card reveal" style="transition-delay:.2s">
+        <div class="gamme-card-inner">
+          <div class="gamme-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 22V8l7-6 7 6v14"/><path d="M9 22v-6h4v6"/><path d="M20 22V11"/><path d="M17 9h6v2h-6z"/></svg>
+          </div>
+          <div class="gamme-top">
+            <div class="gamme-name">Stations Service</div>
+            <div class="gamme-arrow">›</div>
+          </div>
+          <div class="gamme-desc">Produits piste, lavage haute pression, shampoing carrosserie concentré. Conçus pour les volumes et la cadence des stations service.</div>
+          <div class="gamme-count">4 produits disponibles</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUI NOUS UTILISE ── -->
+<section class="cibles-section" id="cibles">
+  <div class="container">
+    <div class="cibles-layout">
+      <div>
+        <div class="section-header reveal">
+          <div class="section-eyebrow">Nos clients</div>
+          <div class="section-title">Qui utilise<br>Puravex ?</div>
+          <div class="section-sub">Nos produits sont adoptés par des professionnels exigeants dans toute la France, des plus petites structures aux groupes nationaux.</div>
+        </div>
+        <div class="cibles-list">
+          <div class="cible-row reveal">
+            <div class="cible-num">01</div>
+            <div class="cible-ind" style="background:#2563eb"></div>
+            <div class="cible-text">
+              <div class="cible-name">Hôtels & AirBnB</div>
+              <div class="cible-desc">Nettoyage quotidien haute fréquence, respect des normes sanitaires, approvisionnement régulier.</div>
+            </div>
+            <div class="cible-arr">›</div>
+          </div>
+          <div class="cible-row reveal" style="transition-delay:.05s">
+            <div class="cible-num">02</div>
+            <div class="cible-ind" style="background:#f59e0b"></div>
+            <div class="cible-text">
+              <div class="cible-name">Garages & Detailers</div>
+              <div class="cible-desc">Produits pro carrosserie, mécanique et nettoyage de véhicules de toutes catégories.</div>
+            </div>
+            <div class="cible-arr">›</div>
+          </div>
+          <div class="cible-row reveal" style="transition-delay:.1s">
+            <div class="cible-num">03</div>
+            <div class="cible-ind" style="background:#10b981"></div>
+            <div class="cible-text">
+              <div class="cible-name">Sociétés de nettoyage</div>
+              <div class="cible-desc">Approvisionnement régulier en grande quantité, tarifs dégressifs selon le volume commandé.</div>
+            </div>
+            <div class="cible-arr">›</div>
+          </div>
+          <div class="cible-row reveal" style="transition-delay:.15s">
+            <div class="cible-num">04</div>
+            <div class="cible-ind" style="background:#8b5cf6"></div>
+            <div class="cible-text">
+              <div class="cible-name">Stations service</div>
+              <div class="cible-desc">Produits freins, moteur, lavage piste et carrosserie pour les volumes station.</div>
+            </div>
+            <div class="cible-arr">›</div>
+          </div>
+          <div class="cible-row reveal" style="transition-delay:.2s">
+            <div class="cible-num">05</div>
+            <div class="cible-ind" style="background:#ec4899"></div>
+            <div class="cible-text">
+              <div class="cible-name">Particuliers exigeants</div>
+              <div class="cible-desc">Qualité professionnelle accessible au grand public, livraison rapide, mêmes formulations.</div>
+            </div>
+            <div class="cible-arr">›</div>
+          </div>
+        </div>
+      </div>
+      <div class="cibles-aside reveal" style="transition-delay:.2s">
+        <div class="cibles-aside-label">Puravex en chiffres</div>
+        <div class="aside-stat">
+          <div class="aside-stat-num">4<span> gammes</span></div>
+          <div class="aside-stat-label">Hôtellerie, auto, industrie, stations</div>
+        </div>
+        <div class="aside-stat">
+          <div class="aside-stat-num">48<span>h</span></div>
+          <div class="aside-stat-label">Délai de livraison partout en France</div>
+        </div>
+        <div class="aside-stat">
+          <div class="aside-stat-num">×<span>2</span></div>
+          <div class="aside-stat-label">Marge garantie pour nos revendeurs</div>
+        </div>
+        <div class="aside-stat">
+          <div class="aside-stat-num">100<span>%</span></div>
+          <div class="aside-stat-label">Produits conformes normes EU</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RÉSEAU PRO ── -->
+<section class="reseau-section" id="reseau">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Espace professionnel</div>
+      <div class="section-title">Développez votre<br>activité avec nous</div>
+      <div class="section-sub">Deux façons de rejoindre le réseau Puravex et générer des revenus supplémentaires, avec ou sans stock.</div>
+    </div>
+    <div class="reseau-grid">
+      <div class="reseau-card featured reveal">
+        <div class="reseau-eyebrow blue">Revendeur officiel</div>
+        <div class="reseau-title">Pack Revendeur</div>
+        <div class="reseau-desc">Achetez au tarif grossiste, revendez avec vos propres marges. Idéal pour les auto-entrepreneurs, artisans et commerçants.</div>
+        <div class="reseau-price">150 <span style="font-size:24px;color:var(--silver-dark)">€</span></div>
+        <div class="reseau-price-sub">Pack de démarrage tout inclus</div>
+        <div class="reseau-features">
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Tarifs grossiste — 35% de remise
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Kit produits de démarrage inclus
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Support commercial dédié
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Badge revendeur officiel Puravex
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Accès catalogue complet au tarif pro
+          </div>
+        </div>
+        <a href="#contact" class="reseau-btn">Rejoindre le réseau</a>
+      </div>
+      <div class="reseau-card reveal" style="transition-delay:.1s">
+        <div class="reseau-eyebrow gray">Apporteur d'affaires</div>
+        <div class="reseau-title">Commercial Indépendant</div>
+        <div class="reseau-desc">Pas de stock, pas de contrainte. Recommandez Puravex autour de vous et percevez une commission sur chaque vente générée.</div>
+        <div class="reseau-price">0 <span style="font-size:24px;color:var(--silver-dark)">€</span></div>
+        <div class="reseau-price-sub">Sans frais d'entrée — Commission immédiate</div>
+        <div class="reseau-features">
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            10 à 15% de commission par vente
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Lien de parrainage personnalisé
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Tableau de bord suivi en temps réel
+          </div>
+          <div class="reseau-feat">
+            <div class="feat-check"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></div>
+            Aucun stock à gérer
+          </div>
+        </div>
+        <a href="#contact" class="reseau-btn">S'inscrire gratuitement</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 64px;">
+      <div class="section-eyebrow">Commander</div>
+      <div class="section-title">Simple, rapide,<br>livré en 48h</div>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num-wrap">
+          <div class="step-num">01</div>
+        </div>
+        <div class="step-title">Choisissez votre gamme</div>
+        <div class="step-desc">Hôtellerie, auto, industrie ou station service — chaque gamme est formulée et dosée pour votre activité spécifique.</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.1s">
+        <div class="step-num-wrap">
+          <div class="step-num">02</div>
+        </div>
+        <div class="step-title">Sélectionnez votre statut</div>
+        <div class="step-desc">Particulier, revendeur ou commercial indépendant — trois niveaux de tarifs adaptés à chaque profil d'achat.</div>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="step-num-wrap">
+          <div class="step-num">03</div>
+        </div>
+        <div class="step-title">Réception sous 48h</div>
+        <div class="step-desc">Livraison partout en France avec suivi en temps réel. Paiement sécurisé, retours offerts sous 14 jours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BANNER ── -->
+<div class="cta-banner" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <div class="section-eyebrow" style="margin-bottom:10px">Prêt à commencer ?</div>
+        <div class="cta-title">Rejoignez le réseau<br>Puravex dès aujourd'hui</div>
+        <div class="cta-desc">Des produits professionnels, un réseau qui grandit, des revenus récurrents.</div>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary">
+          Voir la boutique
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="mailto:contact@puravex.fr" class="btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-name">PURA<span>VEX</span></div>
+        <div class="footer-logo-sub">Groupe Cohesif — Nettoyage Professionnel</div>
+        <div class="footer-brand-desc">La référence du nettoyage professionnel en France. Formulations pro-grade pour tous les secteurs d'activité.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Gammes</div>
+        <div class="footer-links">
+          <a href="#">Hôtellerie & AirBnB</a>
+          <a href="#">Auto & Detailing</a>
+          <a href="#">Industrie & BTP</a>
+          <a href="#">Stations service</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Réseau pro</div>
+        <div class="footer-links">
+          <a href="#">Devenir revendeur</a>
+          <a href="#">Devenir commercial</a>
+          <a href="#">Espace revendeur</a>
+          <a href="#">Tarifs pro</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Informations</div>
+        <div class="footer-links">
+          <a href="#">À propos</a>
+          <a href="#">Contact</a>
+          <a href="#">Livraison</a>
+          <a href="#">CGV</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 PURAVEX — Tous droits réservés</div>
+      <div class="footer-group">Un projet du Groupe Cohesif</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Trigger hero reveals immediately
+  document.querySelectorAll('.hero .reveal').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+</script>
+</body>
+</html>
