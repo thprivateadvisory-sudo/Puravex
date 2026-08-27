@@ -108,19 +108,18 @@
     }
     .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-    .trust-badges { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; }
+    .trust-badges { display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; }
     .trust-badge {
-      display: flex; align-items: center; gap: 11px;
-      border: 1.5px solid var(--line); padding: 11px 14px;
-      background: var(--white); min-width: 160px;
+      display: flex; align-items: center; gap: 10px;
+      padding: 0; background: none; border: none; flex: 1;
     }
     .trust-badge-icon {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--blue-l); display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
     .trust-badge-icon svg { width: 17px; height: 17px; stroke: var(--blue); fill: none; stroke-width: 2; }
-    .trust-badge-title { font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.1px; line-height: 1.2; }
+    .trust-badge-title { font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.1px; line-height: 1.2; }
     .trust-badge-sub { font-size: 10px; color: var(--text-3); margin-top: 2px; }
 
     /* Hero visual */
